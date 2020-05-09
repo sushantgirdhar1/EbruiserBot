@@ -740,8 +740,8 @@ __help__ = """
  - /resetgoodbye: reset to the default goodbye message.
  - /cleanwelcome <on/off>: On new member, try to delete the previous welcome message to avoid spamming the chat.
  - /welcomemutehelp: gives information about welcome mutes.
- - /welcomehelp: view more formatting information for custom welcome/goodbye messages.
- - /cleanservice <on/off: deletes telegrams welcome/left service messages. ex: user joined chat, user left chat.
+ - /welcomehelp: view more formatting information for custom welcome/goodbye messages.. 
+ - As Due to some limitation Clean Services has some limit.Use @AntiServiceMessageBot to clean all service messages 
 """.format(WELC_HELP_TXT)
 
 NEW_MEM_HANDLER = MessageHandler(Filters.status_update.new_chat_members, new_member, pass_job_queue=True)
