@@ -111,7 +111,7 @@ Chatbot utilizes the CoffeeHouse API and allows Bot to talk back making your cha
 
 This is an ongoing upgrade and is only available in your chats if you reach out to {SUPPORT_CHAT} and ask for it. 
 
-As Now , We Had Only 100 free sessions Lydia Coffeehouse , so this is Owner Restricted Command
+As Now , We Had Only 100 free sessions from Lydia Coffeehouse , so this is Owner Restricted Command
 Powered by Lydia 
 
 Commands: These only work My Owner (He can enable auto chat in a group ) 
