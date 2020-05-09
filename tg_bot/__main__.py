@@ -23,7 +23,7 @@ Hello {}, I am {}  ! , 📲With Best Group Management Features .
 Well , you can visit us [HERE](sushantgirdhar.github.io/)🗣
 
 To Add me to your group click ["HERE"](t.me/ebruiser_bot?startgroup=botstart) . Make Sure to get my [Master](telegram.dog/sushantgirdhar/) authorization first .
-Also ,Don't Forget to turn On Anti-Spam  
+Also ,Don't Forget to turn On Anti-Spam
 👉🏻 /gbanstat on
 The support Channel is {}.
 """
