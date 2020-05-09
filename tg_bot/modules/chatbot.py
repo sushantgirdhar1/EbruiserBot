@@ -108,10 +108,12 @@ __mod_name__ = "Chatbot"
 
 __help__ = f"""
 Chatbot utilizes the CoffeeHouse API and allows Bot to talk back making your chat more interactive.
+
 This is an ongoing upgrade and is only available in your chats if you reach out to {SUPPORT_CHAT} and ask for it. 
-In future we might make it open for any chat and controllable by group admins later .
+
 As Now , We Had Only 100 free sessions Lydia Coffeehouse , so this is Owner Restricted Command
 Powered by Lydia 
+
 Commands: These only work My Owner (He can enable auto chat in a group ) 
  - /addchat     : Enables Chatbot mode in the chat.
  - /rmchat      : Disables Chatbot mode in the chat.
