@@ -20,11 +20,15 @@ PM_START_TEXT = """
 Hello {}, I am {}  ! , 📲With Best Group Management Features . 
 
 ⚙️Click /help to find out more about how to use me to my full potential
+
 Well , you can visit us [HERE](sushantgirdhar.github.io/)🗣
+See [Basic Configuration Commands](t.me/ebruiser/58)
+
+To secure your group from spammers . Enable Anti Spam by 
+👉🏻 /gbanstat on
 
 To Add me to your group click ["HERE"](t.me/ebruiser_bot?startgroup=botstart) .
-Also ,Don't Forget to turn On Anti-Spam
-👉🏻 /gbanstat on
+
 The support Channel is {}.
 """
 
