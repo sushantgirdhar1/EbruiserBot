@@ -17,7 +17,7 @@ ELEVATED_USERS_FILE = os.path.join(os.getcwd(), 'tg_bot/elevated_users.json')
 
 def check_user_id(user_id: int, bot: Bot) -> Optional[str]:
     if not user_id:
-        reply = "That...is a chat! baka ka omae?"
+        reply = "That...is a chat! Look Again ?"
 
     elif user_id == bot.id:
         reply = "This does not work that way."
@@ -27,16 +27,16 @@ def check_user_id(user_id: int, bot: Bot) -> Optional[str]:
     return reply
 
 #I added extra new lines
-disasters = """ Saitama has bot access levels we call as *"Disaster Levels"*
+disasters = """ Bot has access levels we call as *"Disaster Levels"*
 \n*Heroes Association* - Devs who can access the bots server and can execute, edit, modify bot code. Can also manage other Disasters
 \n*God* - Only one exists, bot owner. 
-Owner has complete bot access, including bot adminship in chats Saitama is at.
-\n*Dragons* - Have super user access, can gban, manage disasters lower than them and are admins in Saitama.
-\n*Demons* - Have access go globally ban users across Saitama.
+Owner has complete bot access, including bot adminship in chats Bot is at.
+\n*Dragons* - Have super user access, can gban, manage disasters lower than them and are admins in Bot.
+\n*Demons* - Have access go globally ban users across Bot.
 \n*Tigers* - Same as wolves but can unban themselves if banned.
 \n*Wolves* - Cannot be banned, muted flood kicked but can be manually banned by admins.
-\n*Disclaimer*: The disaster levels in Saitama are there for troubleshooting, support, banning potential scammers.
-Report abuse or ask us more on these at [Heroes Association](https://t.me/OnePunchSupport).
+\n*Disclaimer*: The disaster levels in Bot are there for troubleshooting, support, banning potential scammers.
+Report abuse or ask us more on these to  [Master](https://t.me/sushantgirdhar).
 """
 # do not async, not a handler 
 def send_disasters(update):
