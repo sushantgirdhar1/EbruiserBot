@@ -27,15 +27,15 @@ def check_user_id(user_id: int, bot: Bot) -> Optional[str]:
     return reply
 
 #I added extra new lines
-disasters = """ Bot has access levels we call as *"Disaster Levels"*
-\n*Heroes Association* - Devs who can access the bots server and can execute, edit, modify bot code. Can also manage other Disasters
+disasters = """ Bot has access levels we call as *"Admin Levels"*
+\n*Heroes Association* - Devs who can access the bots server and can execute, edit, modify bot code. Can also manage other Admins
 \n*God* - Only one exists, bot owner. 
 Owner has complete bot access, including bot adminship in chats Bot is at.
-\n*Dragons* - Have super user access, can gban, manage disasters lower than them and are admins in Bot.
+\n*Dragons* - Have super user access, can gban, manage Admins lower than them and are admins in Bot.
 \n*Demons* - Have access go globally ban users across Bot.
 \n*Tigers* - Same as wolves but can unban themselves if banned.
 \n*Wolves* - Cannot be banned, muted flood kicked but can be manually banned by admins.
-\n*Disclaimer*: The disaster levels in Bot are there for troubleshooting, support, banning potential scammers.
+\n*Disclaimer*: The Admins levels in Bot are there for troubleshooting, support, banning potential scammers.
 Report abuse or ask us more on these to  [Master](https://t.me/sushantgirdhar).
 """
 # do not async, not a handler 
@@ -495,10 +495,10 @@ def devlist(bot: Bot, update: Update):
 
 __help__ = f"""
  - /heroes - Lists all Hero Association members.
- - /dragons - Lists all Dragon disasters.
- - /demons - Lists all Demon disasters.
- - /tigers - Lists all Tigers disasters.
- - /wolves - Lists all Wolf disasters.
+ - /dragons - Lists all Dragon Admins.
+ - /demons - Lists all Demon Admins.
+ - /tigers - Lists all Tigers Admins.
+ - /wolves - Lists all Wolf Admins.
  Note: These commands list users with special bot priveleges and can only be used by them.
  You can visit {SUPPORT_CHAT} to query more about these.
 """
