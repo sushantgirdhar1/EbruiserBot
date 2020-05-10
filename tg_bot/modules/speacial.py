@@ -139,21 +139,18 @@ __help__ = """
 - /banall: Ban all members from a chat
 - /snipe **chatid** **string**: Make me send a message to a specific chat.
 - /leavechat **chatid** : leave a chat
+
 **Sudo/owner only:**
 - /quickscope **userid** **chatid**: Ban user from chat.
 - /quickunban **userid** **chatid**: Unban user from chat.
-- 
-- 
-- 
 - /Stats: check bot's stats
 - /chatlist: get chatlist
 - /gbanlist: get gbanned users list
 - Chat bans via /restrict chat_id and /unrestrict chat_id commands
 **Support user:**
 - /Gban : Global ban a user
-- /Ungban : Ungban a user
-- 
-- 
+- /Ungban : Ungban a user 
+
 Sudo/owner can use these commands too.
 **Users:**
 - /slist Gives a list of sudo and support users
