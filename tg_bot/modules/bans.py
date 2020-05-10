@@ -227,7 +227,7 @@ def punchme(bot: Bot, update: Update):
 
     res = update.effective_chat.unban_member(user_id)  # unban on current user = kick
     if res:
-        update.effective_message.reply_text("No problem.")
+        update.effective_message.reply_text("*punches you out of the group*")
     else:
         update.effective_message.reply_text("Huh? I can't :/")
 
@@ -325,7 +325,6 @@ def selfunban(bot: Bot, update: Update, args: List[str]) -> str:
 
 __help__ = """
  - /punchme: punchs the user who issued the command
-
 *Admin only:*
  - /ban <userhandle>: bans a user. (via handle, or reply)
  - /tban <userhandle> x(m/h/d): bans a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
