@@ -20,3 +20,6 @@ jikanpy
 speedtest-cli
 coffeehouse
 tldextract
+gsearch
+wikipedia
+tswift
