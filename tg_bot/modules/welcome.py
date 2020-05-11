@@ -110,7 +110,7 @@ def new_member(bot: Bot, update: Update, job_queue: JobQueue):
                 if sw_ban:
                     return
 
-        if new_mem.id = bot.id:
+        if new_mem.id == bot.id:
                 bot.send_message(
                     MESSAGE_DUMP,
                     "I have been added to {} with ID: <pre>{}</pre>".format(
