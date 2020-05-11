@@ -204,6 +204,7 @@ __help__ = """
  - /markdownhelp: quick summary of how markdown works in telegram - can only be called in private chats.
  - /tts <word> : text to speech- gives you audio of that word
  - /wall <word> : gives you HD wallpaper related to the word .
+ - /gbanstat on , we are now connected with spamwatch now do this to stop global spammers .
 """
 
 ID_HANDLER = DisableAbleCommandHandler("id", get_id, pass_args=True)
