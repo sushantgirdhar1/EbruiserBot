@@ -83,7 +83,13 @@ if ENV:
 
 # SpamWatch
 spamwatch_api = CONFIG['sw_api']
-sw = spamwatch.Client(spamwatch_api)
+
+if spamwatch_api == "None":
+    sw = None
+    LOGGER.warning("SpamWatch API key is missing! Check your config.env.")
+else:
+    sw = spamwatch.Client(spamwatch_api)
+
 
 else:
     from tg_bot.config import Development as Config
