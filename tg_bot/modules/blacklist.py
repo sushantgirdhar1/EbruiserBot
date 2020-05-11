@@ -15,9 +15,13 @@ from tg_bot.modules.helper_funcs.misc import split_message
 
 BLACKLIST_GROUP = 11
 
+def infinite_loop_check(regex):
+     match_1 = re.search('\((.[\+\*]){1,}\)[\+\*].', regex)
+     return True if match_1 else False
 
 @run_async
 @connection_status
+@user_admin
 def blacklist(bot: Bot, update: Update, args: List[str]):
     msg = update.effective_message
     chat = update.effective_chat
@@ -66,7 +70,17 @@ def add_blacklist(bot: Bot, update: Update):
         to_blacklist = list(set(trigger.strip() for trigger in text.split("\n") if trigger.strip()))
 
         for trigger in to_blacklist:
-            sql.add_to_blacklist(chat.id, trigger.lower())
+            try:
+                re.compile(trigger)
+            except Exception as exce:
+                msg.reply_text(f"Couldn't add regex, Error: {exce}")
+                return
+            check = infinite_loop_check(trigger)
+            if not check:
+               sql.add_to_blacklist(chat.id, trigger.lower())
+            else:
+                msg.reply_text("I'm afraid I can't add that regex.")
+                return
 
         if len(to_blacklist) == 1:
             msg.reply_text(f"Added <code>{html.escape(to_blacklist[0])}</code> to the blacklist!",
@@ -126,14 +140,20 @@ def del_blacklist(bot: Bot, update: Update):
     chat = update.effective_chat
     message = update.effective_message
     to_match = extract_text(message)
-
+    msg = update.effective_message
     if not to_match:
         return
 
     chat_filters = sql.get_chat_blacklist(chat.id)
     for trigger in chat_filters:
-        pattern = r"( |^|[^\w])" + re.escape(trigger) + r"( |$|[^\w])"
-        if re.search(pattern, to_match, flags=re.IGNORECASE):
+        pattern = r"( |^|[^\w])" + trigger + r"( |$|[^\w])"
+        try:
+          match = re.search(pattern, to_match, flags=re.IGNORECASE)
+        except Exception:
+          sql.rm_from_blacklist(chat.id, trigger)
+          msg.reply_text(f'Removed {trigger} from blacklist because of broken regex')
+          return
+        if match:
             try:
                 message.delete()
             except BadRequest as excp:
@@ -161,11 +181,8 @@ def __stats__():
 __help__ = """
 Blacklists are used to stop certain triggers from being said in a group. Any time the trigger is mentioned, \
 the message will immediately be deleted. A good combo is sometimes to pair this up with warn filters!
-
 *NOTE:* blacklists do not affect group admins.
-
  - /blacklist: View the current blacklisted words.
-
 *Admin only:*
  - /addblacklist <triggers>: Add a trigger to the blacklist. Each line is considered one trigger, so using different \
 lines will allow you to add multiple triggers.
@@ -174,7 +191,7 @@ multiple triggers at once.
  - /rmblacklist <triggers>: Same as above.
 """
 
-BLACKLIST_HANDLER = DisableAbleCommandHandler("blacklist", blacklist, pass_args=True, admin_ok=True)
+BLACKLIST_HANDLER = DisableAbleCommandHandler("blacklist", blacklist, pass_args=True)
 ADD_BLACKLIST_HANDLER = CommandHandler("addblacklist", add_blacklist)
 UNBLACKLIST_HANDLER = CommandHandler(["unblacklist", "rmblacklist"], unblacklist)
 BLACKLIST_DEL_HANDLER = MessageHandler((Filters.text | Filters.command | Filters.sticker | Filters.photo) & Filters.group, del_blacklist, edited_updates=True)
