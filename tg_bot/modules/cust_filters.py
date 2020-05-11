@@ -9,6 +9,7 @@ from telegram.ext import CommandHandler, MessageHandler, DispatcherHandlerStop, 
 from telegram.utils.helpers import escape_markdown
 
 from tg_bot import dispatcher, LOGGER, SUPPORT_CHAT
+from tg_bot.modules.blacklist import infinite_loop_check
 from tg_bot.modules.disable import DisableAbleCommandHandler
 from tg_bot.modules.helper_funcs.chat_status import user_admin, connection_status
 from tg_bot.modules.helper_funcs.extraction import extract_text
@@ -72,8 +73,7 @@ def filters(bot: Bot, update: Update):
     if len(extracted) < 1:
         return
     # set trigger -> lower, so as to avoid adding duplicate filters with different cases
-    keyword = extracted[0].lower()
-
+    keyword = extracted[0]
     is_sticker = False
     is_document = False
     is_image = False
@@ -118,7 +118,9 @@ def filters(bot: Bot, update: Update):
     else:
         msg.reply_text("You didn't specify what to reply with!")
         return
-
+    if infinite_loop_check(keyword):
+        msg.reply_text("I'm afraid I can't add that regex")
+        return
     # Add the filter
     # Note: perhaps handlers can be removed somehow using sql.get_chat_filters
     for handler in dispatcher.handlers.get(HANDLER_GROUP, []):
@@ -169,8 +171,14 @@ def reply_filter(bot: Bot, update: Update):
 
     chat_filters = sql.get_chat_triggers(chat.id)
     for keyword in chat_filters:
-        pattern = r"( |^|[^\w])" + re.escape(keyword) + r"( |$|[^\w])"
-        if re.search(pattern, to_match, flags=re.IGNORECASE):
+        try:
+          pattern = r"( |^|[^\w])" + keyword + r"( |$|[^\w])"
+          match = re.search(pattern, to_match, flags=re.IGNORECASE)
+        except Exception:
+            message.reply_text(f"Removing filter {keyword} due to broken regex.")
+            sql.remove_filter(chat.id, keyword)
+            return
+        if match:
             filt = sql.get_filter(chat.id, keyword)
             if filt.is_sticker:
                 message.reply_sticker(filt.reply)
@@ -229,7 +237,6 @@ def __chat_settings__(chat_id, user_id):
 
 __help__ = """
  - /filters: list all active filters in this chat.
-
 *Admin only:*
  - /filter <keyword> <reply message>: add a filter to this chat. The bot will now reply that message whenever 'keyword'\
 is mentioned. If you reply to a sticker with a keyword, the bot will reply with that sticker. NOTE: all filter \
