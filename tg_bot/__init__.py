@@ -147,13 +147,7 @@ SUDO_USERS.add(OWNER_ID)
 DEV_USERS.add(OWNER_ID)
 
 # SpamWatch
-spamwatch_api = os.environ.get('sw_api', None)
-
-if spamwatch_api == "None":
-    sw = None
-    LOGGER.warning("SpamWatch API key is missing! Check your config.env.")
-else:
-    sw = spamwatch.Client(spamwatch_api)
+client = spamwatch.Client('Gg24iFjCeKEkATvQ5WJJRZbe5MSTvIms_544BoKqcBHFXkZeUebO5iWIeAD502JR')
 
 
 
