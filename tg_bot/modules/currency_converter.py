@@ -44,14 +44,12 @@ def convert(bot: Bot, update: Update):
 __help__ = """
  - /cash : currency converter
  example syntax: /cash 1 USD INR
- - /tts <word> , text to speech
- gives you audio of the words 
 """
 
 CONVERTER_HANDLER = CommandHandler('cash', convert)
 
 dispatcher.add_handler(CONVERTER_HANDLER)
 
-__mod_name__ = "Extra's"
+__mod_name__ = "Currency Converter"
 __command_list__ = ["cash"]
 __handlers__ = [CONVERTER_HANDLER]
