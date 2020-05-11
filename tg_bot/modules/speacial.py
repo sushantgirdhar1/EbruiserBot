@@ -136,7 +136,6 @@ def slist(bot: Bot, update: Update):
 __help__ = """
 **Owner only:**
 - /getlink **chatid**: Get the invite link for a specific chat.
-- /banall: Ban all members from a chat
 - /snipe **chatid** **string**: Make me send a message to a specific chat.
 - /leavechat **chatid** : leave a chat
 
@@ -147,6 +146,7 @@ __help__ = """
 - /chatlist: get chatlist
 - /gbanlist: get gbanned users list
 - Chat bans via /restrict chat_id and /unrestrict chat_id commands
+
 **Support user:**
 - /Gban : Global ban a user
 - /Ungban : Ungban a user 
