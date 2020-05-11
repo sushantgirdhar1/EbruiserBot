@@ -13,7 +13,7 @@ from telegram.utils.helpers import mention_markdown, mention_html, escape_markdo
 
 import tg_bot.modules.sql.welcome_sql as sql
 from tg_bot.modules.sql.global_bans_sql import is_user_gbanned
-from tg_bot import dispatcher, OWNER_ID, DEV_USERS, SUDO_USERS, SUPPORT_USERS, TIGER_USERS, WHITELIST_USERS, LOGGER
+from tg_bot import dispatcher, OWNER_ID, DEV_USERS, SUDO_USERS, SUPPORT_USERS, TIGER_USERS, WHITELIST_USERS, LOGGER, sw
 from tg_bot.modules.helper_funcs.chat_status import user_admin, is_user_ban_protected
 from tg_bot.modules.helper_funcs.misc import build_keyboard, revert_buttons
 from tg_bot.modules.helper_funcs.msg_types import get_welcome_type
@@ -82,36 +82,50 @@ def send(update, message, keyboard, backup_message):
 
 @run_async
 @loggable
-def new_member(bot: Bot, update: Update, job_queue: JobQueue):
-    chat = update.effective_chat
-    user = update.effective_user
-    msg = update.effective_message
+def new_member(bot: Bot, update: Update):
+    chat = update.effective_chat  # type: Optional[Chat]
 
-    should_welc, cust_welcome, welc_type = sql.get_welc_pref(chat.id)
-    welc_mutes = sql.welcome_mutes(chat.id)
-    human_checks = sql.get_human_checks(user.id, chat.id)
+    should_welc, cust_welcome, cust_content, welc_type = sql.get_welc_pref(
+        chat.id)
+    cust_welcome = markdown_to_html(cust_welcome)
 
-    new_members = update.effective_message.new_chat_members
-
-    for new_mem in new_members:
-
-        welcome_log = None
+    if should_welc:
         sent = None
-        should_mute = True
-        welcome_bool = True
+        new_members = update.effective_message.new_chat_members
+        for new_mem in new_members:
+            # Give start information when add bot to group
 
-        if should_welc:
+            if is_user_gbanned(new_mem.id):
+                return
 
-            reply = update.message.message_id
-            cleanserv = sql.clean_service(chat.id)
-            # Clean service welcome
-            if cleanserv:
-                try:
-                    dispatcher.bot.delete_message(
-                        chat.id, update.message.message_id)
-                except BadRequest:
-                    pass
-                reply = False
+            if sw != None:
+                sw_ban = sw.get_ban(new_mem.id)
+                if sw_ban:
+                    return
+
+            if new_mem.id == bot.id:
+                bot.send_message(
+                    MESSAGE_DUMP,
+                    "I have been added to {} with ID: <pre>{}</pre>".format(
+                        chat.title, chat.id),
+                    parse_mode=ParseMode.HTML)
+                bot.send_message(chat.id, tld(chat.id, 'welcome_added_to_grp'))
+
+            else:
+                if is_user_gbanned(new_mem.id):
+                    return
+                # If welcome message is media, send with appropriate function
+                if welc_type != sql.Types.TEXT and welc_type != sql.Types.BUTTON_TEXT:
+                    reply = update.message.message_id
+                    cleanserv = sql.clean_service(chat.id)
+                    # Clean service welcome
+                    if cleanserv:
+                        try:
+                            dispatcher.bot.delete_message(
+                                chat.id, update.message.message_id)
+                        except BadRequest:
+                            pass
+                        reply = False
 
             # Give the owner a special welcome
             if new_mem.id == OWNER_ID:
@@ -306,6 +320,11 @@ def left_member(bot: Bot, update: Update):
             # Ignore bot being kicked
             if left_mem.id == bot.id:
                 return
+              
+            if sw != None:
+                sw_ban = sw.get_ban(left_mem.id)
+                if sw_ban:
+                    return
 
             # Give the owner a special goodbye
             if left_mem.id == OWNER_ID:
