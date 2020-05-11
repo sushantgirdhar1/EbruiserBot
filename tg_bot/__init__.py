@@ -147,7 +147,7 @@ SUDO_USERS.add(OWNER_ID)
 DEV_USERS.add(OWNER_ID)
 
 # SpamWatch
-spamwatch_api = Config.sw_api
+spamwatch_api = os.environ.get('sw_api', None)
 
 if spamwatch_api == "None":
     sw = None
