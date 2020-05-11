@@ -203,6 +203,7 @@ __help__ = """
  - /info: get information about a user.
  - /markdownhelp: quick summary of how markdown works in telegram - can only be called in private chats.
  - /tts <word> : text to speech- gives you audio of that word
+ - /wall <word> : gives you HD wallpaper related to the word .
 """
 
 ID_HANDLER = DisableAbleCommandHandler("id", get_id, pass_args=True)
