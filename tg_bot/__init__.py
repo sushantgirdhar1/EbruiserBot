@@ -91,7 +91,6 @@ else:
     sw = spamwatch.Client(spamwatch_api)
 
 
-else:
     from tg_bot.config import Development as Config
     TOKEN = Config.API_KEY
 
