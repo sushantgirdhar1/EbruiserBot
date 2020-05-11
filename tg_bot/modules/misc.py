@@ -202,6 +202,7 @@ __help__ = """
  - /gifid: reply to a gif to me to tell you its file ID.
  - /info: get information about a user.
  - /markdownhelp: quick summary of how markdown works in telegram - can only be called in private chats.
+ - /tts <word> : text to speech- gives you audio of that word
 """
 
 ID_HANDLER = DisableAbleCommandHandler("id", get_id, pass_args=True)
