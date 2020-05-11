@@ -13,7 +13,7 @@ from telegram.utils.helpers import mention_markdown, mention_html, escape_markdo
 
 import tg_bot.modules.sql.welcome_sql as sql
 from tg_bot.modules.sql.global_bans_sql import is_user_gbanned
-from tg_bot import dispatcher, OWNER_ID, DEV_USERS, SUDO_USERS, SUPPORT_USERS, TIGER_USERS, WHITELIST_USERS, LOGGER
+from tg_bot import dispatcher, OWNER_ID, MESSAGE_DUMP, DEV_USERS, SUDO_USERS, SUPPORT_USERS, TIGER_USERS, WHITELIST_USERS, LOGGER, sw
 from tg_bot.modules.helper_funcs.chat_status import user_admin, is_user_ban_protected
 from tg_bot.modules.helper_funcs.misc import build_keyboard, revert_buttons
 from tg_bot.modules.helper_funcs.msg_types import get_welcome_type
@@ -92,18 +92,31 @@ def new_member(bot: Bot, update: Update, job_queue: JobQueue):
     human_checks = sql.get_human_checks(user.id, chat.id)
 
     new_members = update.effective_message.new_chat_members
-
+    
     for new_mem in new_members:
 
         welcome_log = None
         sent = None
         should_mute = True
         welcome_bool = True
+            
+        if sw != None:
+                sw_ban = sw.get_ban(new_mem.id)
+                if sw_ban:
+                    return
 
+        if new_mem.id == bot.id:
+                bot.send_message(
+                    MESSAGE_DUMP,
+                    "I have been added to {} with ID: <pre>{}</pre>".format(
+                        chat.title, chat.id),
+                    parse_mode=ParseMode.HTML)
+              
         if should_welc:
 
             reply = update.message.message_id
             cleanserv = sql.clean_service(chat.id)
+           
             # Clean service welcome
             if cleanserv:
                 try:
@@ -142,7 +155,7 @@ def new_member(bot: Bot, update: Update, job_queue: JobQueue):
 
             # Welcome yourself
             elif new_mem.id == bot.id:
-                update.effective_message.reply_text("Watashi ga kitta!", reply_to_message_id=reply)
+                update.effective_message.reply_text("Thanks for Adding me ! My Support Channel is @ebruiser ", reply_to_message_id=reply)
 
             else:
                 # If welcome message is media, send with appropriate function
@@ -299,6 +312,12 @@ def left_member(bot: Bot, update: Update):
 
         left_mem = update.effective_message.left_chat_member
         if left_mem:
+          
+            if sw != None:
+                sw_ban = sw.get_ban(left_mem.id)
+                if sw_ban:
+                    return
+                  
             # Dont say goodbyes to gbanned users
             if is_user_gbanned(left_mem.id):
                 return
