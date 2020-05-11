@@ -3,6 +3,8 @@ import os
 import sys
 import time
 import telegram.ext as tg
+import spamwatch
+
 
 StartTime = time.time()
 
@@ -78,9 +80,8 @@ if ENV:
     WALL_API = os.environ.get('WALL_API', None)
     STRICT_GMUTE = bool(os.environ.get('STRICT_GMUTE', False))
     SUPPORT_CHAT = os.environ.get('SUPPORT_CHAT', None)
-
-
-
+    
+    
 else:
     from tg_bot.config import Development as Config
     TOKEN = Config.API_KEY
@@ -144,6 +145,17 @@ else:
 
 SUDO_USERS.add(OWNER_ID)
 DEV_USERS.add(OWNER_ID)
+
+# SpamWatch
+spamwatch_api = os.environ.get('sw_api', None)
+
+if spamwatch_api == "None":
+    sw = None
+    LOGGER.warning("SpamWatch API key is missing! Check your config.env.")
+else:
+    sw = spamwatch.Client(spamwatch_api)
+
+
 
 updater = tg.Updater(TOKEN, workers=WORKERS)
 dispatcher = updater.dispatcher
