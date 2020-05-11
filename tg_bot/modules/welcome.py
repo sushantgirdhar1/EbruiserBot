@@ -93,20 +93,6 @@ def new_member(bot: Bot, update: Update, job_queue: JobQueue):
 
     new_members = update.effective_message.new_chat_members
     
-            if sw != None:
-                sw_ban = sw.get_ban(new_mem.id)
-                if sw_ban:
-                    return
-
-            if new_mem.id == bot.id:
-                bot.send_message(
-                    MESSAGE_DUMP,
-                    "I have been added to {} with ID: <pre>{}</pre>".format(
-                        chat.title, chat.id),
-                    parse_mode=ParseMode.HTML)
-                bot.send_message(chat.id, tld(chat.id, 'welcome_added_to_grp'))   
-    
-    
     for new_mem in new_members:
 
         welcome_log = None
@@ -118,6 +104,20 @@ def new_member(bot: Bot, update: Update, job_queue: JobQueue):
 
             reply = update.message.message_id
             cleanserv = sql.clean_service(chat.id)
+            
+        if sw != None:
+                sw_ban = sw.get_ban(new_mem.id)
+                if sw_ban:
+                    return
+
+            if new_mem.id == bot.id:
+                bot.send_message(
+                    MESSAGE_DUMP,
+                    "I have been added to {} with ID: <pre>{}</pre>".format(
+                        chat.title, chat.id),
+                    parse_mode=ParseMode.HTML)
+                bot.send_message(chat.id, tld(chat.id, 'welcome_added_to_grp'))     
+           
             # Clean service welcome
             if cleanserv:
                 try:
