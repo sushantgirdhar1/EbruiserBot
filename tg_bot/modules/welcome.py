@@ -99,11 +99,6 @@ def new_member(bot: Bot, update: Update, job_queue: JobQueue):
         sent = None
         should_mute = True
         welcome_bool = True
-
-        if should_welc:
-
-            reply = update.message.message_id
-            cleanserv = sql.clean_service(chat.id)
             
         if sw != None:
                 sw_ban = sw.get_ban(new_mem.id)
@@ -116,7 +111,12 @@ def new_member(bot: Bot, update: Update, job_queue: JobQueue):
                     "I have been added to {} with ID: <pre>{}</pre>".format(
                         chat.title, chat.id),
                     parse_mode=ParseMode.HTML)
-                bot.send_message(chat.id, tld(chat.id, 'welcome_added_to_grp'))     
+                bot.send_message(chat.id, tld(chat.id, 'welcome_added_to_grp')) 
+              
+        if should_welc:
+
+            reply = update.message.message_id
+            cleanserv = sql.clean_service(chat.id)
            
             # Clean service welcome
             if cleanserv:
