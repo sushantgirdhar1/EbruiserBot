@@ -147,7 +147,7 @@ SUDO_USERS.add(OWNER_ID)
 DEV_USERS.add(OWNER_ID)
 
 # SpamWatch
-client = spamwatch.Client('Gg24iFjCeKEkATvQ5WJJRZbe5MSTvIms_544BoKqcBHFXkZeUebO5iWIeAD502JR')
+sw = spamwatch.Client(Gg24iFjCeKEkATvQ5WJJRZbe5MSTvIms_544BoKqcBHFXkZeUebO5iWIeAD502JR)
 
 
 
