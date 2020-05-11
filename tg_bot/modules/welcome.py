@@ -110,7 +110,7 @@ def new_member(bot: Bot, update: Update, job_queue: JobQueue):
                     MESSAGE_DUMP,
                     "I have been added to {} with ID: <pre>{}</pre>".format(
                         chat.title, chat.id),
-                    parse_mode=ParseMode.HTML 
+                    parse_mode=ParseMode.HTML)
               
         if should_welc:
 
