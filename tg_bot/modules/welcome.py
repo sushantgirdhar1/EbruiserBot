@@ -8,7 +8,7 @@ from telegram.ext import MessageHandler, Filters, CommandHandler, run_async, Cal
 from telegram.utils.helpers import mention_html
 
 import tg_bot.modules.sql.welcome_sql as sql
-from tg_bot.modules.sql.antispam_sql import is_user_gbanned
+from tg_bot.modules.sql.global_bans_sql import is_user_gbanned
 from tg_bot import dispatcher, OWNER_ID, LOGGER, MESSAGE_DUMP, sw
 from tg_bot.modules.helper_funcs.chat_status import user_admin, is_user_ban_protected
 from tg_bot.modules.helper_funcs.misc import build_keyboard, revert_buttons
@@ -16,7 +16,7 @@ from tg_bot.modules.helper_funcs.msg_types import get_welcome_type
 from tg_bot.modules.helper_funcs.string_handling import markdown_parser, \
     escape_invalid_curly_brackets, extract_time, markdown_to_html
 from tg_bot.modules.log_channel import loggable
-from tg_bot.modules.tr_engine.strings import tld
+
 
 VALID_WELCOME_FORMATTERS = [
     'first', 'last', 'fullname', 'username', 'id', 'count', 'chatname',
