@@ -134,7 +134,7 @@ def slist(bot: Bot, update: Update):
     message.reply_text(text2 + "\n", parse_mode=ParseMode.MARKDOWN)
 
 __help__ = """
-**This Plugin is for owner only**
+**This Module is for Bot Owner only**
 """
 
 __mod_name__ = "𝕊𝕦𝕤𝕙𝕒𝕟𝕥"
