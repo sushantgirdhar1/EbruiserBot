@@ -3,6 +3,8 @@ import os
 import sys
 import time
 import telegram.ext as tg
+import spamwatch
+
 
 StartTime = time.time()
 
@@ -79,7 +81,9 @@ if ENV:
     STRICT_GMUTE = bool(os.environ.get('STRICT_GMUTE', False))
     SUPPORT_CHAT = os.environ.get('SUPPORT_CHAT', None)
 
-
+# SpamWatch
+spamwatch_api = CONFIG['sw_api']
+sw = spamwatch.Client(spamwatch_api)
 
 else:
     from tg_bot.config import Development as Config
