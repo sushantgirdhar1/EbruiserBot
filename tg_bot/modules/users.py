@@ -1,4 +1,4 @@
-rom io import BytesIO
+from io import BytesIO
 from time import sleep
 
 from telegram import Bot, Update, TelegramError
