@@ -95,7 +95,7 @@ def leavechat(bot: Bot, update: Update, args: List[int]):
     try:
         chat = bot.getChat(chat_id)
         titlechat = bot.get_chat(chat_id).title
-        bot.sendMessage(chat_id, "`I Go Away!`")
+        bot.sendMessage(chat_id, "Looks like this chat is not authorized by master . Take authorization from him here @sushantgirdhar .")
         bot.leaveChat(chat_id)
         update.effective_message.reply_text("I left group {}".format(titlechat))
 
