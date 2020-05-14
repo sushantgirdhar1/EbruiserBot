@@ -33,7 +33,9 @@ The support Channel is {}.
 
 HELP_STRINGS = """
 Hey there! My name is *{}*.
+
 I am an Extra Ordinary group management bot, here to help you get around and keep the order in your groups with Extra Fun and Useful Modules.
+
 I have lots of handy features, such as warning system, a note keeping system, and even predetermined replies on certain keywords.
 
 *Main* commands available:
