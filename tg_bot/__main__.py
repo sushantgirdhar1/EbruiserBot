@@ -42,7 +42,7 @@ I have lots of handy features, such as warning system, a note keeping system, an
  - /help <module name>: PM's you info about that module.
  - /donate: information about how to donate!
  
- If you have any bugs or questions on how to use me or need helper in setting up the bot , head to @ebruiser .
+If you have any bugs or questions on how to use me or need helper in setting up the bot , head to @ebruiser .
  
 {}
 And the following:
