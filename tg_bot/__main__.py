@@ -22,13 +22,12 @@ Hello {}, I am {}  ! , 📲With Best Group Management Features .
 ⚙️Click /help to find out more about how to use me to my full potential
 
 Well , you can visit us [HERE](sushantgirdhar.github.io/)🗣
-See [Basic Configuration Commands](t.me/ebruiser/58)
 
+See [Basic Configuration Commands](t.me/ebruiser/58)
 To secure your group from spammers . Enable Anti Spam by 
 👉🏻 /gbanstat on
 
 To Add me to your group click ["HERE"](t.me/ebruiser_bot?startgroup=botstart) .
-
 The support Channel is {}.
 """
 
@@ -42,9 +41,8 @@ I have lots of handy features, such as warning system, a note keeping system, an
  - /help: PM's you this message.
  - /help <module name>: PM's you info about that module.
  - /donate: information about how to donate!
- 
+
 If you have any bugs or questions on how to use me or need helper in setting up the bot , head to @ebruiser .
- 
 {}
 And the following:
 """.format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n")
