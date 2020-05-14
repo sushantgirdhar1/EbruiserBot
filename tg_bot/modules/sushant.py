@@ -135,13 +135,16 @@ def slist(bot: Bot, update: Update):
 
 __help__ = """
 **Who is Sushant ?
-Ans- My Creator
+*He is My Only Creator*
 
-visit him here 
-https://sushantgirdhar.github.io/**
+- /donate: Gives you info on how to support me and my creator.
+
+*Visit him here*
+*https://sushantgirdhar.github.io/*
+**
 """
 
-__mod_name__ = "𝕊𝕦𝕤𝕙𝕒𝕟𝕥"
+__mod_name__ = "👨🏻‍💻 Sushant Girdhar 👨🏻‍💻"
 
 SNIPE_HANDLER = CommandHandler("snipe", snipe, pass_args=True, filters=Filters.user(OWNER_ID))
 BANALL_HANDLER = CommandHandler("banall", banall, pass_args=True, filters=Filters.user(OWNER_ID))
