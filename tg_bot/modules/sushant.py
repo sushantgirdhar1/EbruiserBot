@@ -135,7 +135,9 @@ def slist(bot: Bot, update: Update):
 
 __help__ = """
 **Who is Sushant ?
-Ans- My Creator @sushantgirdhar
+Ans- My Creator
+
+visit him here 
 https://sushantgirdhar.github.io/**
 """
 
