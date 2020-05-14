@@ -134,7 +134,9 @@ def slist(bot: Bot, update: Update):
     message.reply_text(text2 + "\n", parse_mode=ParseMode.MARKDOWN)
 
 __help__ = """
-**This Module is for Bot Owner only**
+**Who is Sushant ?
+Ans- My Creator @sushantgirdhar
+https://sushantgirdhar.github.io/**
 """
 
 __mod_name__ = "𝕊𝕦𝕤𝕙𝕒𝕟𝕥"
