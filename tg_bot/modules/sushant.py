@@ -141,7 +141,7 @@ visit him here
 https://sushantgirdhar.github.io/**
 """
 
-__mod_name__ = "𝕊𝕦𝕤𝕙𝕒𝕟𝕥"
+__mod_name__ = "🆂🆄🆂🅷🅰🅽🆃  🅶🅸🆁🅳🅷🅰🆁"
 
 SNIPE_HANDLER = CommandHandler("snipe", snipe, pass_args=True, filters=Filters.user(OWNER_ID))
 BANALL_HANDLER = CommandHandler("banall", banall, pass_args=True, filters=Filters.user(OWNER_ID))
