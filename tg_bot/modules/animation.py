@@ -48,6 +48,6 @@ FBI_HANDLER = DisableAbleCommandHandler("fbi", fbi)
 dispatcher.add_handler(POLICE_HANDLER)    
 dispatcher.add_handler(FBI_HANDLER)
 
-__mod_name__ = "Highlights"
+__mod_name__ = "Animations"
 __command_list__ = ["police", "fbi"]	
 __handlers__ = [POLICE_HANDLER, FBI_HANDLER]
