@@ -16,8 +16,10 @@ from tg_bot.modules.helper_funcs.misc import split_message
 BLACKLIST_GROUP = 11
 
 def infinite_loop_check(regex):
-     match_1 = re.search('\((.[\+\*]){1,}\)[\+\*].', regex)
-     return True if match_1 else False
+     loop_matches = [r'\((.{1,}[\+\*]){1,}\)[\+\*].', r'[\(\[].{1,}\{\d(,)?\}[\)\]]\{\d(,)?\}', r'\(.{1,}\)\{.{1,}(,)?\}\(.*\)(\+|\* |\{.*\})']
+     for match in loop_matches:
+          match_1 = re.search(match, regex)
+          if match_1: return True
 
 @run_async
 @connection_status
@@ -200,5 +202,5 @@ dispatcher.add_handler(ADD_BLACKLIST_HANDLER)
 dispatcher.add_handler(UNBLACKLIST_HANDLER)
 dispatcher.add_handler(BLACKLIST_DEL_HANDLER, group=BLACKLIST_GROUP)
 
-__mod_name__ = "Blacklist"
+__mod_name__ = "Blacklist Word"
 __handlers__ = [BLACKLIST_HANDLER, ADD_BLACKLIST_HANDLER, UNBLACKLIST_HANDLER, (BLACKLIST_DEL_HANDLER, BLACKLIST_GROUP)]
