@@ -19,30 +19,23 @@ from tg_bot.modules.helper_funcs.misc import paginate_modules
 PM_START_TEXT = """
 Hello {}, I am {}  ! , 📲With Best Group Management Features . 
 
-⚙️Click /help to find out more about how to use me to my full potential
+⚙️Click /help to find out more about how to use me to my full potential.
 
-Well , you can visit us [HERE](sushantgirdhar.github.io/)🗣
+See [Basic Configurations Here](t.me/ebruiser/58) ⚡️
 
-See [Basic Configuration Commands](t.me/ebruiser/58)
-To secure your group from spammers . Enable Anti Spam by 
-👉🏻 /gbanstat on
+Join Bot support Channel {}.If you want to keep up with the bot news, bot updates and bot support group,if you need any bot support or help
 
-To Add me to your group click ["HERE"](t.me/ebruiser_bot?startgroup=botstart) .
-The support Channel is {}.
+Made with love by @sushantgirdhar
+
+Want to add me to your group? Click [Here!](t.me/ebruiser_bot?startgroup=botstart) .
 """
 
 HELP_STRINGS = """
-Hey there! My name is *{}*.
+Hey there! My name is *{}*.I am an Extra Ordinary group management bot, here to help you get around and keep the order in your groups with Extra Fun and Useful Modules.I have lots of handy features, such as warning system, a note keeping system, and even predetermined replies on certain keywords.
 
-I am an Extra Ordinary group management bot, here to help you get around and keep the order in your groups with Extra Fun and Useful Modules.
-
-I have lots of handy features, such as warning system, a note keeping system, and even predetermined replies on certain keywords.
-
-*Main* commands available:
+*Helpful commands*
  - /start: start the bot
  - /help: PM's you this message.
- - /help <module name>: PM's you info about that module.
- - /donate: information about how to donate!
 
 If you have any bugs or questions on how to use me or need helper in setting up the bot , head to @ebruiser .
 {}
