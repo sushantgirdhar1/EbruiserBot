@@ -210,6 +210,11 @@ __help__ = """
  - /whois : tell u about the complete details of the user
  - /ping - get ping time of bot to telegram server
  - /pingall - get all listed ping time
+ 
+ Want to get the lyrics of your favorite songs straight from the app? This module is perfect for that!
+*Available commands:*
+ - /lyrics <song>: returns the lyrics of that song.
+ You can either enter just the song name or both the artist and song name.
 """
 
 ID_HANDLER = DisableAbleCommandHandler("id", get_id, pass_args=True)
