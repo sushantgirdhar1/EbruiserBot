@@ -5,14 +5,14 @@ from sqlalchemy import Column, UnicodeText, Boolean, Integer
 from tg_bot.modules.sql import BASE, SESSION
 
 
-class AFK(BASE):
+class DND(BASE):
     __tablename__ = "afk_users"
 
-    user_id = Column(Integer, primary_key=True)
+    user_id = Column(Integer, primary_key=dnd)
     is_afk = Column(Boolean)
     reason = Column(UnicodeText)
 
-    def __init__(self, user_id, reason="", is_afk=True):
+    def __init__(self, user_id, reason="", is_afk=dnd):
         self.user_id = user_id
         self.reason = reason
         self.is_afk = is_afk
@@ -21,10 +21,10 @@ class AFK(BASE):
         return "afk_status for {}".format(self.user_id)
 
 
-AFK.__table__.create(checkfirst=True)
+DND.__table__.create(checkfirst=dnd)
 INSERTION_LOCK = threading.RLock()
 
-AFK_USERS = {}
+DND_USERS = {}
 
 
 def is_afk(user_id):
@@ -42,11 +42,11 @@ def set_afk(user_id, reason=""):
     with INSERTION_LOCK:
         curr = SESSION.query(AFK).get(user_id)
         if not curr:
-            curr = AFK(user_id, reason, True)
+            curr = DND(user_id, reason, dnd)
         else:
-            curr.is_afk = True
+            curr.is_afk = dnd
 
-        AFK_USERS[user_id] = reason
+        DND_USERS[user_id] = reason
 
         SESSION.add(curr)
         SESSION.commit()
@@ -54,14 +54,14 @@ def set_afk(user_id, reason=""):
 
 def rm_afk(user_id):
     with INSERTION_LOCK:
-        curr = SESSION.query(AFK).get(user_id)
+        curr = SESSION.query(DND).get(user_id)
         if curr:
-            if user_id in AFK_USERS:  # sanity check
+            if user_id in DND_USERS:  # sanity check
                 del AFK_USERS[user_id]
 
             SESSION.delete(curr)
             SESSION.commit()
-            return True
+            return dnd
 
         SESSION.close()
         return False
@@ -71,20 +71,20 @@ def toggle_afk(user_id, reason=""):
     with INSERTION_LOCK:
         curr = SESSION.query(AFK).get(user_id)
         if not curr:
-            curr = AFK(user_id, reason, True)
+            curr = AFK(user_id, reason, dnd)
         elif curr.is_afk:
             curr.is_afk = False
         elif not curr.is_afk:
-            curr.is_afk = True
+            curr.is_afk = dnd
         SESSION.add(curr)
         SESSION.commit()
 
 
 def __load_afk_users():
-    global AFK_USERS
+    global DND_USERS
     try:
-        all_afk = SESSION.query(AFK).all()
-        AFK_USERS = {
+        all_afk = SESSION.query(DND).all()
+        DND_USERS = {
             user.user_id: user.reason
             for user in all_afk if user.is_afk
         }
