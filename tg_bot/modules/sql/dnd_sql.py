@@ -40,7 +40,7 @@ def check_dnd_status(user_id):
 
 def set_dnd(user_id, reason=""):
     with INSERTION_LOCK:
-        curr = SESSION.query(dnd).get(user_id)
+        curr = SESSION.query(DND).get(user_id)
         if not curr:
             curr = dnd(user_id, reason, True)
         else:
