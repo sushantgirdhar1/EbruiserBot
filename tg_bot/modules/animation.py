@@ -38,15 +38,38 @@ def fbi(bot: Bot, update: Update):
         time.sleep(EDIT_SLEEP)
     msg.edit_text('Police is here!')
     
-__help__ = """
+__help__ = f"""
+*Here is the help for Animations Modules*
 - /police : Sends a police emoji animation. 
-- /fbi : Send O\_O animation
-- /love ❣️
-- /hack 👨‍💻
-- /bombs 💣
-- /moonanimation 🌚
-- /clockanimation 🕛
-- /earthanimation 🌍
+- /fbi : Send O\_O animation.
+- /love : send love emojis in diffrent colors.
+- /hack : doesnt hack anything , just a meme.
+- /bombs : lol,will not kill you .
+- /moonanimation : diff face animation.
+- /clockanimation : clock ticking animations.
+- /earthanimation : earth revolving animation.
+
+*Here is the help for Fun Strings*
+ - /runs: reply a random string from an array of replies.
+ - /slap: slap a user, or get slapped if not a reply.
+ - /shrug : get shrug XD.
+ - /table : get flip/unflip :v.
+ - /decide : Randomly answers yes/no/maybe
+ - /toss : Tosses A coin
+ - /bluetext : check urself :V
+ - /roll : Roll a dice.
+ - /rlg : Join ears,nose,mouth and create an emo
+ - /react: Reacts with a random reaction
+ 
+*Here is the help for fun wording*
+Give a loud shout out in the chatroom, i.e /shout HELP, bot replies with huge coded HELP letters within the square. 
+ - /shout <keyword>: write anything you want to give loud shout.
+ 
+*Here is the help for Chatbot i.e AutoChat or AI Enabling*
+Chatbot utilizes the CoffeeHouse API and allows Bot to talk back making your chat more interactive. This is an ongoing upgrade and is only available in your chats if you reach out to @ebruiser and ask for it. As this is Bot Owner restricted Commands.Powered by *Lydia* .
+ - /addchat     : Enables Chatbot mode in the chat.
+ - /rmchat      : Disables Chatbot mode in the chat.
+ - /listaichats : Lists the chats the chatmode is enabled in
 """
     
 POLICE_HANDLER = DisableAbleCommandHandler("police", police)
@@ -54,6 +77,6 @@ FBI_HANDLER = DisableAbleCommandHandler("fbi", fbi)
 dispatcher.add_handler(POLICE_HANDLER)    
 dispatcher.add_handler(FBI_HANDLER)
 
-__mod_name__ = "Animation"
+__mod_name__ = "Memes"
 __command_list__ = ["police", "fbi"]	
 __handlers__ = [POLICE_HANDLER, FBI_HANDLER]

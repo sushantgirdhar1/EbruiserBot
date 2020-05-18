@@ -413,13 +413,15 @@ def __chat_settings__(chat_id, user_id):
 
 
 __help__ = f"""
-*Admin only:*
+Read Help of AntiSpam Module Before,then Read this.
+*Available Admin only Command:* 
  - /gbanstat <on/off/yes/no>: Will disable the effect of global bans on your group, or return your current settings.
 
-Gbans, also known as global bans, are used by the bot owners to ban spammers across all groups. This helps protect \
+Gbans, also known as *Global Bans*, are used by the bot owners to ban spammers across all groups. This helps protect \
 you and your groups by removing spam flooders as quickly as possible. They can be disabled for your group by calling \
 /gbanstat
-Note: You can appeal gbans or ask gbans at {SUPPORT_CHAT}
+
+Note: If Mistakenly Gbanned or want to report someone for gban , appeal here {SUPPORT_CHAT}
 """
 
 GBAN_HANDLER = CommandHandler("gban", gban, pass_args=True)
@@ -435,7 +437,7 @@ dispatcher.add_handler(UNGBAN_HANDLER)
 dispatcher.add_handler(GBAN_LIST)
 dispatcher.add_handler(GBAN_STATUS)
 
-__mod_name__ = "GBans"
+__mod_name__ = "Global Bans"
 __handlers__ = [GBAN_HANDLER, UNGBAN_HANDLER, GBAN_LIST, GBAN_STATUS]
 
 if STRICT_GBAN:  # enforce GBANS if this is set

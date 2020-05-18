@@ -199,15 +199,39 @@ def stats(bot: Bot, update: Update):
     update.effective_message.reply_text(result, parse_mode=ParseMode.HTML)
 
 
-__help__ = """
+__help__ = f"""
  - /id: get the current group id. If used by replying to a message, gets that user's id.
  - /gifid: reply to a gif to me to tell you its file ID.
  - /info: get information about a user.
  - /markdownhelp: quick summary of how markdown works in telegram - can only be called in private chats.
  - /tts <word> : text to speech- gives you audio of that word
  - /wall <word> : gives you HD wallpaper related to the word .
- - /gbanstat on : we are now connected with spamwatch now do this to stop global spammers .
  - /whois : tell u about the complete details of the user
+ - /ping - get ping time of bot to telegram server
+ - /pingall - get all listed ping time
+ - /weebify <text>: returns a weebified text
+ - /gps: <location> Get gps location.
+ - /cash : currency converter : example syntax: /cash 1 USD INR
+ - /wiki text: Returns search from wikipedia for the input text
+ - /paste - Do a paste at neko.bin
+ - /time <query> : Gives information about a timezone,Query:Country Code/Country Name/Timezone Name
+ - /lyrics <song>: returns the lyrics of that song,You can either enter just the song name or both the artist and song name
+ 
+*Here is the help for Translator Module*
+ - /tr or /tl (language code) as reply to a long message.
+Example: /tr en - translates something to english. 
+         /tr hi-en - translates hindi to english.
+         
+*Here is the help for the Dictionary module*
+Ever stumbled upon a word that you didn't know of and wanted to look it up?,With this module, you can find the definitions of words without having to leave the app!
+Available commands-    
+ - /ud <word>: Type the word or expression you want to search use.
+ - /urban <word>: Same as /ud         
+                  
+*Special | COVID-19*         
+ - /covindia <state>: Get real time COVID-19 stats for the input *Indian* state
+ - /corona : Gets a random Argument from the bot
+         
 """
 
 ID_HANDLER = DisableAbleCommandHandler("id", get_id, pass_args=True)

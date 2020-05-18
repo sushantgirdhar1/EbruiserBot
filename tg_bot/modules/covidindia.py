@@ -43,13 +43,6 @@ def covindia(bot: Bot, update: Update):
             disable_web_page_preview = True
         )
 
-__help__ = """
- - /covindia <state>: Get real time COVID-19 stats for the input Indian state
- - /corona : Gets a random Argument from the bot
-
-"""
-
-__mod_name__ = 'Covid-19'
 
 COV_INDIA_HANDLER = CommandHandler('covindia', covindia)
 

@@ -17,32 +17,22 @@ from tg_bot.modules.helper_funcs.chat_status import is_user_admin
 from tg_bot.modules.helper_funcs.misc import paginate_modules
 
 PM_START_TEXT = """
-Hello {}, I am {}  ! , 📲With Best Group Management Features . 
+Hello {}, I am {}  ! , 📲With Best Group Management Features .
 
 ⚙️Click /help to find out more about how to use me to my full potential
 
-Well , you can visit us [HERE](sushantgirdhar.github.io/)🗣
+Made with love by 💁🏻‍♂️ @sushantgirdhar
 
-See [Basic Configuration Commands](t.me/ebruiser/58)
-To secure your group from spammers . Enable Anti Spam by 
-👉🏻 /gbanstat on
-
-To Add me to your group click ["HERE"](t.me/ebruiser_bot?startgroup=botstart) .
-The support Channel is {}.
+Follow @ebruiser if you want to keep up with the bot news and Check Basic Configuration Checklist on how to secure your group.
 """
 
 HELP_STRINGS = """
 Hey there! My name is *{}*.
-
-I am an Extra Ordinary group management bot, here to help you get around and keep the order in your groups with Extra Fun and Useful Modules.
-
-I have lots of handy features, such as warning system, a note keeping system, and even predetermined replies on certain keywords.
+I am an Extra Ordinary group management bot, here to help you get around and keep the order in your groups with Extra Fun and Useful Modules.I have lots of handy features, such as warning system, a note keeping system, and even predetermined replies on certain keywords.
 
 *Main* commands available:
  - /start: start the bot
  - /help: PM's you this message.
- - /help <module name>: PM's you info about that module.
- - /donate: information about how to donate!
 
 If you have any bugs or questions on how to use me or need helper in setting up the bot , head to @ebruiser .
 {}
@@ -141,10 +131,13 @@ def start(bot: Bot, update: Update, args: List[str]):
         else:
             first_name = update.effective_user.first_name
             update.effective_message.reply_text(
-                PM_START_TEXT.format(escape_markdown(first_name), escape_markdown(bot.first_name), SUPPORT_CHAT),
-                parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
+                PM_START_TEXT.format(escape_markdown(first_name), escape_markdown(bot.first_name), OWNER_ID),
+                parse_mode=ParseMode.MARKDOWN, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="➕ Add me to a Group ➕",
+                                                                       url="t.me/{}?startgroup=true".format(bot.username))]]))
+          
+
     else:
-        update.effective_message.reply_text("Yo, whadup?")
+        update.effective_message.reply_text("Yo,Wassup?")
 
 
 # for test purposes
