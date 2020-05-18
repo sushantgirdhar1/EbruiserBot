@@ -297,9 +297,12 @@ def __chat_settings__(chat_id, user_id):
 __help__ = """
 {}
 Commands:
+
  - /casver: Returns the API version that the bot is currently running
  - /cascheck: Checks you or another user for CAS BAN
-*Admin only:*
+ 
+*Admin only:* for CAS Bans
+
  - /setcas <on/off/true/false>: Enables/disables CAS Checking on welcome
  - /getcas: Gets the current CAS settings
  - /setban <on/off/true/false>: Enables/disables autoban on CAS banned user detected.
@@ -308,9 +311,14 @@ Commands:
  - /kicktime: gets the auto-kick time setting
  - /setkicktime: sets new auto-kick time value (between 30 and 900 seconds)
  - /cas: Info about CAS. (What is CAS?)
+ 
+ Also *Admin Only*
+ 
+ Along , with CAS Bans . We have Added Spamwatch API to Gbans . you can turn on all the protection by just 
+ - /gbanstat on : this will turn it on 
 """
 
-__mod_name__ = "CAS"
+__mod_name__ = "AntiSpam"
 
 SETCAS_HANDLER = CommandHandler("setcas", setcas, filters=Filters.group)
 GETCAS_HANDLER = CommandHandler("getcas", get_current_setting, filters=Filters.group)
