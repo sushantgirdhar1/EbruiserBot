@@ -48,6 +48,7 @@ __help__ = """
  - /cov <country> <state> <locality>: Globally Get real time COVID-19 stats for the input location.
  - /cov top <n(integer)>: Get the top n countries with the highest confirmed cases.
  - /corona : Gets a random Argument from the bot
+ - /covid get worldwide corona status
 """
 
 __mod_name__ = 'Covid-19'
