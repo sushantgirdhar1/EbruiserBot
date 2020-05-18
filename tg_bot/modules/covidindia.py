@@ -44,10 +44,10 @@ def covindia(bot: Bot, update: Update):
         )
 
 __help__ = """
- 
  - /covindia <state>: Get real time COVID-19 stats for the input Indian state
-  - /cov <country> <state> <locality>: Globally Get real time COVID-19 stats for the input location.
+ - /cov <country> <state> <locality>: Globally Get real time COVID-19 stats for the input location.
  - /cov top <n(integer)>: Get the top n countries with the highest confirmed cases.
+ - /corona : Gets a random Argument from the bot
 """
 
 __mod_name__ = 'Covid-19'
