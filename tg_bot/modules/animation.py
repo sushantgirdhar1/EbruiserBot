@@ -60,6 +60,10 @@ Some of the *Fun* Stuff
  - /roll : Roll a dice.
  - /rlg : Join ears,nose,mouth and create an emo ;-;
  - /react: Reacts with a random reaction
+ 
+ A little piece of *fun wording*! Give a loud shout out in the chatroom.
+ i.e /shout HELP, bot replies with huge coded HELP letters within the square. 
+ - /shout <keyword>: write anything you want to give loud shout.
 """
     
 POLICE_HANDLER = DisableAbleCommandHandler("police", police)
