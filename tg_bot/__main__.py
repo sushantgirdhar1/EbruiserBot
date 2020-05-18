@@ -17,14 +17,14 @@ from tg_bot.modules.helper_funcs.chat_status import is_user_admin
 from tg_bot.modules.helper_funcs.misc import paginate_modules
 
 PM_START_TEXT = """
-Hello {}, I am {}  ! , 📲With Best Group Management Features .⚙️Click /help to find out more about how to use me to my full potential
+Hello {}, I am {}  ! , 📲With Best Group Management Features .
+
+⚙️Click /help to find out more about how to use me to my full potential
 Click basic commands button to know how to secure your group.
 
-Follow @ebruiser if you want to keep up with the bot news, bot updates and bot downtime!
+Follow @ebruiser if you want to keep up with the bot news and Check Basic Configuration Checklist on how to secure your group.
 
 Made with love by 💁🏻‍♂️ @sushantgirdhar
-
-Want to add me to your group?[Click Here](t.me/ebruiser_bot?startgroup=botstart)
 """
 
 HELP_STRINGS = """
@@ -136,8 +136,8 @@ def start(bot: Bot, update: Update, args: List[str]):
             first_name = update.effective_user.first_name
             update.effective_message.reply_text(
                 PM_START_TEXT.format(escape_markdown(first_name), escape_markdown(bot.first_name), OWNER_ID),
-                parse_mode=ParseMode.MARKDOWN, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="🛠 Basic Configuration Checklist",
-                                                                       url="t.me/ebruiser/58")]]))
+                parse_mode=ParseMode.MARKDOWN, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="➕ Add me to a Group ➕",
+                                                                       url="t.me/{}?startgroup=true".format(bot.username))]]))
           
 
     else:
