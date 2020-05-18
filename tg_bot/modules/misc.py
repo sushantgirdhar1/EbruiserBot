@@ -227,8 +227,7 @@ Ever stumbled upon a word that you didn't know of and wanted to look it up?,With
 Available commands-    
  - /ud <word>: Type the word or expression you want to search use.
  - /urban <word>: Same as /ud         
-         
-         
+                  
 *Special | COVID-19*         
  - /covindia <state>: Get real time COVID-19 stats for the input *INDIAN* state
  - /corona : Gets a random Argument from the bot
