@@ -211,6 +211,7 @@ __help__ = """
  - /ping - get ping time of bot to telegram server
  - /pingall - get all listed ping time
  - /weebify <text>: returns a weebified text
+ - /gps: <location> Get gps location.
  
 Want to get the lyrics of your favorite songs straight from the app? This module is perfect for that!
 *Available commands:*
