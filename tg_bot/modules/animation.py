@@ -41,13 +41,13 @@ def fbi(bot: Bot, update: Update):
 __help__ = f"""
 Some of the *Animation* Stuff
 - /police : Sends a police emoji animation. 
-- /fbi : Send O\_O animation
-- /love ❣️
-- /hack 👨‍💻
-- /bombs 💣
-- /moonanimation 🌚
-- /clockanimation 🕛
-- /earthanimation 🌍
+- /fbi : Send O\_O animation.
+- /love : send love emojis in diffrent colors.
+- /hack : doesnt hack anything , just a meme.
+- /bombs : lol,will not kill you .
+- /moonanimation : diff face animation.
+- /clockanimation : clock ticking animations.
+- /earthanimation : earth revolving animation.
 
 Some of the *Fun* Stuff
  - /runs: reply a random string from an array of replies.
