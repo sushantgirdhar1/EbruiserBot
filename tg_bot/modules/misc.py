@@ -220,6 +220,11 @@ Want to get the lyrics of your favorite songs straight from the app? This module
 *Available commands*
  - /lyrics <song>: returns the lyrics of that song.
  You can either enter just the song name or both the artist and song name
+ 
+Here is the help for *Translator* Module
+ - /tr or /tl (language code) as reply to a long message.
+Example: /tr en - translates something to english. 
+         /tr hi-en - translates hindi to english.
 """
 
 ID_HANDLER = DisableAbleCommandHandler("id", get_id, pass_args=True)
