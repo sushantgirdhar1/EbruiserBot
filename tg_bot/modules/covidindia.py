@@ -45,9 +45,8 @@ def covindia(bot: Bot, update: Update):
 
 __help__ = """
  - /covindia <state>: Get real time COVID-19 stats for the input Indian state
- - /cov <country> <state> <locality>: Globally Get real time COVID-19 stats for the input location.
  - /corona : Gets a random Argument from the bot
- - /covid get worldwide corona status
+
 """
 
 __mod_name__ = 'Covid-19'
