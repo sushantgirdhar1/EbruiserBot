@@ -167,7 +167,6 @@ def info(bot: Bot, update: Update, args: List[str]):
     
     
     
-@bot_admin
 @can_restrict
 @user_admin
 def safe_mode(bot: Bot, update: Update, args: List[str]):
