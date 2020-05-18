@@ -64,6 +64,15 @@ Some of the *Fun* Stuff
  A little piece of *fun wording*! Give a loud shout out in the chatroom.
  i.e /shout HELP, bot replies with huge coded HELP letters within the square. 
  - /shout <keyword>: write anything you want to give loud shout.
+ 
+*Chatbot Lydia*utilizes the CoffeeHouse API and allows Bot to talk back making your chat more interactive.
+This is an ongoing upgrade and is only available in your chats if you reach out to {SUPPORT_CHAT} and ask for it. 
+As Now , We Had Only 100 free sessions from Lydia Coffeehouse , so this is Owner Restricted Command
+Powered by Lydia 
+Commands: These only work My Owner (He can enable auto chat in a group ) 
+ - /addchat     : Enables Chatbot mode in the chat.
+ - /rmchat      : Disables Chatbot mode in the chat.
+ - /listaichats : Lists the chats the chatmode is enabled in
 """
     
 POLICE_HANDLER = DisableAbleCommandHandler("police", police)
