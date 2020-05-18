@@ -20,11 +20,10 @@ PM_START_TEXT = """
 Hello {}, I am {}  ! , 📲With Best Group Management Features .
 
 ⚙️Click /help to find out more about how to use me to my full potential
-Click basic commands button to know how to secure your group.
-
-Follow @ebruiser if you want to keep up with the bot news and Check Basic Configuration Checklist on how to secure your group.
 
 Made with love by 💁🏻‍♂️ @sushantgirdhar
+
+Follow @ebruiser if you want to keep up with the bot news and Check Basic Configuration Checklist on how to secure your group.
 """
 
 HELP_STRINGS = """
