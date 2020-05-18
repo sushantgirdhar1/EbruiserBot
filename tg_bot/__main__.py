@@ -19,12 +19,11 @@ from tg_bot.modules.helper_funcs.misc import paginate_modules
 PM_START_TEXT = """
 Hello {}, I am {}  ! , 📲With Best Group Management Features . 
 
-Join Bot support Channel @ebruiser .If you want to keep up with the bot news and bot updates.
+Join Bot support Channel.If you want to keep up with the bot news and bot updates.
 
-Made with love by @sushantgirdhar
+Made with love by @sushantgirdhar ⚡️
 
 ⚙️Click /Help to find out more about how to use me to my full potential!
-See [Basic Configurations List](t.me/ebruiser/58) ⚡️
 """
 
 HELP_STRINGS = """
@@ -129,12 +128,15 @@ def start(bot: Bot, update: Update, args: List[str]):
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
         else:
-            first_name = update.effective_user.first_name
-            update.effective_message.reply_text(
-                PM_START_TEXT.format(escape_markdown(first_name), escape_markdown(bot.first_name), OWNER_ID),
-                parse_mode=ParseMode.MARKDOWN, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Click to ADD me to your group ➕",
-                                                                       url="t.me/{}?startgroup=true".format(bot.username))]]))
+    chat = update.effective_chat  # type: Optional[Chat]
+    first_name = update.effective_user.first_name 
+    text = PM_START
 
+    keyboard = [[InlineKeyboardButton(text="📢 Support Channel",url="t.me/ebruiser")]]
+    keyboard += [[InlineKeyboardButton(text="🛠 Basic Commands ",url="t.me/ebruiser/58")]], 
+        InlineKeyboardButton(text="❔ Help", callback_data="help_back")]]
+
+    update.effective_message.reply_text(PM_START.format(escape_markdown(first_name), bot.first_name), reply_markup=InlineKeyboardMarkup(keyboard), disable_web_page_preview=True, parse_mode=ParseMode.MARKDOWN)
 
     else:
         update.effective_message.reply_text("Yo!.Wassup?")
