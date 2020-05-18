@@ -66,8 +66,10 @@ Give a loud shout out in the chatroom, i.e /shout HELP, bot replies with huge co
  - /shout <keyword>: write anything you want to give loud shout.
  
 *Here is the help for Chatbot i.e AutoChat or AI Enabling*
-Chatbot utilizes the CoffeeHouse API and allows Bot to talk back making your chat more interactive. This is an ongoing upgrade and is only available in your chats if you reach out to @ebruiser and ask for it. As Now , We Had Only 100 free sessions from Lydia Coffeehouse , so this is Owner Restricted Command . Ask my master @sushantgirdhar to enable AI in your group.
-Powered by *Lydia*
+Chatbot utilizes the CoffeeHouse API and allows Bot to talk back making your chat more interactive. This is an ongoing upgrade and is only available in your chats if you reach out to @ebruiser and ask for it. As this is Bot Owner restricted Commands.Powered by *Lydia* .
+ - /addchat     : Enables Chatbot mode in the chat.
+ - /rmchat      : Disables Chatbot mode in the chat.
+ - /listaichats : Lists the chats the chatmode is enabled in
 """
     
 POLICE_HANDLER = DisableAbleCommandHandler("police", police)
