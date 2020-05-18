@@ -58,16 +58,15 @@ __help__ = f"""
  - /toss : Tosses A coin
  - /bluetext : check urself :V
  - /roll : Roll a dice.
- - /rlg : Join ears,nose,mouth and create an emo ;-;
+ - /rlg : Join ears,nose,mouth and create an emo
  - /react: Reacts with a random reaction
  
-*Here is the help for *fun wording*! 
+*Here is the help for fun wording*
 Give a loud shout out in the chatroom, i.e /shout HELP, bot replies with huge coded HELP letters within the square. 
  - /shout <keyword>: write anything you want to give loud shout.
  
 *Here is the help for Chatbot i.e AutoChat or AI Enabling*
-
-Chatbot utilizes the *CoffeeHouse API* and allows Bot to talk back making your chat more interactive.This is an ongoing upgrade and is only available in your chats if you reach out to @ebruiser and ask for it. As Now , We Had Only 100 free sessions from Lydia Coffeehouse , so this is Owner Restricted Command . Ask my master @sushantgirdhar to enable AI in your group.
+Chatbot utilizes the CoffeeHouse API and allows Bot to talk back making your chat more interactive. This is an ongoing upgrade and is only available in your chats if you reach out to @ebruiser and ask for it. As Now , We Had Only 100 free sessions from Lydia Coffeehouse , so this is Owner Restricted Command . Ask my master @sushantgirdhar to enable AI in your group.
 Powered by *Lydia*
 """
     
