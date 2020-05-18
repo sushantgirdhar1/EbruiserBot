@@ -39,7 +39,8 @@ def fbi(bot: Bot, update: Update):
     msg.edit_text('Police is here!')
     
 __help__ = f"""
-Some of the *Animation* Stuff
+
+*Here is the help for Animations Modules*
 - /police : Sends a police emoji animation. 
 - /fbi : Send O\_O animation.
 - /love : send love emojis in diffrent colors.
@@ -49,7 +50,7 @@ Some of the *Animation* Stuff
 - /clockanimation : clock ticking animations.
 - /earthanimation : earth revolving animation.
 
-Some of the *Fun* Stuff
+*Here is the help for Fun Strings*
  - /runs: reply a random string from an array of replies.
  - /slap: slap a user, or get slapped if not a reply.
  - /shrug : get shrug XD.
@@ -61,14 +62,12 @@ Some of the *Fun* Stuff
  - /rlg : Join ears,nose,mouth and create an emo ;-;
  - /react: Reacts with a random reaction
  
- A little piece of *fun wording*! Give a loud shout out in the chatroom.
- i.e /shout HELP, bot replies with huge coded HELP letters within the square. 
+*Here is the help for *fun wording*! 
+Give a loud shout out in the chatroom, i.e /shout HELP, bot replies with huge coded HELP letters within the square. 
  - /shout <keyword>: write anything you want to give loud shout.
  
-Chatbot utilizes the *CoffeeHouse API* and allows Bot to talk back making your chat more interactive.
-This is an ongoing upgrade and is only available in your chats if you reach out to @ebruiser and ask for it. 
-As Now , We Had Only 100 free sessions from Lydia Coffeehouse , so this is Owner Restricted Command
-Powered by *Lydia* 
+*Here is the help for Chatbot i.e AutoChat or AI Enabling*
+Chatbot utilizes the *CoffeeHouse API* and allows Bot to talk back making your chat more interactive.This is an ongoing upgrade and is only available in your chats if you reach out to @ebruiser and ask for it. As Now , We Had Only 100 free sessions from Lydia Coffeehouse , so this is Owner Restricted CommandPowered by *Lydia* 
 Commands: These only work My Owner (He can enable auto chat in a group ;-;
  - /addchat     : Enables Chatbot mode in the chat.
  - /rmchat      : Disables Chatbot mode in the chat.
@@ -80,6 +79,6 @@ FBI_HANDLER = DisableAbleCommandHandler("fbi", fbi)
 dispatcher.add_handler(POLICE_HANDLER)    
 dispatcher.add_handler(FBI_HANDLER)
 
-__mod_name__ = "Fun"
+__mod_name__ = "Memes"
 __command_list__ = ["police", "fbi"]	
 __handlers__ = [POLICE_HANDLER, FBI_HANDLER]
