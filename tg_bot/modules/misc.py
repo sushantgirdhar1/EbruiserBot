@@ -208,6 +208,8 @@ __help__ = """
  - /wall <word> : gives you HD wallpaper related to the word .
  - /gbanstat on : we are now connected with spamwatch now do this to stop global spammers .
  - /whois : tell u about the complete details of the user
+ - /ping - get ping time of bot to telegram server
+ - /pingall - get all listed ping time
 """
 
 ID_HANDLER = DisableAbleCommandHandler("id", get_id, pass_args=True)
