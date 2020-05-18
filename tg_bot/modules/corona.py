@@ -25,11 +25,6 @@ def corona(bot: Bot, update: Update):
     else:
       message.reply_text(random.choice(SFW_STRINGS))
 
-__help__ = """
-- /corona  😷.
-"""
-
-__mod_name__ = "Corona"
 
 CRNA_HANDLER = DisableAbleCommandHandler("corona", corona)
 
