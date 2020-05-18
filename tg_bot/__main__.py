@@ -18,20 +18,27 @@ from tg_bot.modules.helper_funcs.misc import paginate_modules
 
 PM_START_TEXT = """
 Hello {}, I am {}  ! , 📲With Best Group Management Features . 
+⚙️Click /help to find out more about how to use me to my full potential
 
-Join Bot support Channel.If you want to keep up with the bot news and bot updates.
+Made with love by @sushantgirdhar 💫
 
-Made with love by @sushantgirdhar ⚡️
+See My [Basic Configuration Commands](t.me/ebruiser/58)
 
-⚙️Click /Help to find out more about how to use me to my full potential!
+Follow {}. if you want to keep up with the bot news, bot updates and bot downtime!
 """
 
 HELP_STRINGS = """
-Hey there! My name is *{}*.I am an Extra Ordinary group management bot, here to help you get around and keep the order in your groups with Extra Fun and Useful Modules.I have lots of handy features, such as warning system, a note keeping system, and even predetermined replies on certain keywords.
+Hey there! My name is *{}*.
 
-*Helpful commands*
+I am an Extra Ordinary group management bot, here to help you get around and keep the order in your groups with Extra Fun and Useful Modules.
+
+I have lots of handy features, such as warning system, a note keeping system, and even predetermined replies on certain keywords.
+
+*Main* commands available:
  - /start: start the bot
  - /help: PM's you this message.
+ - /help <module name>: PM's you info about that module.
+ - /donate: information about how to donate!
 
 If you have any bugs or questions on how to use me or need helper in setting up the bot , head to @ebruiser .
 {}
@@ -126,20 +133,17 @@ def start(bot: Bot, update: Update, args: List[str]):
 
             elif args[0][1:].isdigit() and "rules" in IMPORTED:
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
-    except:
-        pass
-    chat = update.effective_chat  # type: Optional[Chat]
-    first_name = update.effective_user.first_name 
-    text = PM_START
 
-    keyboard = [[InlineKeyboardButton(text="📢 Support Channel",url="t.me/ebruiser")]]
-    keyboard += [[InlineKeyboardButton(text="🛠 Basic Commands ",url="t.me/ebruiser/58")]], 
-        InlineKeyboardButton(text="❔ Help", callback_data="help_back")]]
+        else:
+            first_name = update.effective_user.first_name
+            update.effective_message.reply_text(
+                PM_START_TEXT.format(escape_markdown(first_name), escape_markdown(bot.first_name), OWNER_ID),
+                parse_mode=ParseMode.MARKDOWN, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="➕ Add me to a Group ➕",
+                                                                       url="t.me/{}?startgroup=true".format(bot.username))]]))
 
-    update.effective_message.reply_text(PM_START.format(escape_markdown(first_name), bot.first_name), reply_markup=InlineKeyboardMarkup(keyboard), disable_web_page_preview=True, parse_mode=ParseMode.MARKDOWN)
 
     else:
-        update.effective_message.reply_text("Yo!.Wassup?")
+        update.effective_message.reply_text("Yo,Wassup?")
 
 
 # for test purposes
