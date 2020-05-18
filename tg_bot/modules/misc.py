@@ -206,17 +206,18 @@ __help__ = """
  - /markdownhelp: quick summary of how markdown works in telegram - can only be called in private chats.
  - /tts <word> : text to speech- gives you audio of that word
  - /wall <word> : gives you HD wallpaper related to the word .
- - /gbanstat on : we are now connected with spamwatch now do this to stop global spammers .
  - /whois : tell u about the complete details of the user
  - /ping - get ping time of bot to telegram server
  - /pingall - get all listed ping time
  - /weebify <text>: returns a weebified text
  - /gps: <location> Get gps location.
+ - /cash : currency converter : example syntax: /cash 1 USD INR
  
 Want to get the lyrics of your favorite songs straight from the app? This module is perfect for that!
 *Available commands:*
  - /lyrics <song>: returns the lyrics of that song.
  You can either enter just the song name or both the artist and song name.
+ 
 """
 
 ID_HANDLER = DisableAbleCommandHandler("id", get_id, pass_args=True)
