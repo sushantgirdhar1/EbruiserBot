@@ -39,6 +39,7 @@ def fbi(bot: Bot, update: Update):
     msg.edit_text('Police is here!')
     
 __help__ = """
+Some of the *Animation* Stuff
 - /police : Sends a police emoji animation. 
 - /fbi : Send O\_O animation
 - /love ❣️
@@ -47,6 +48,8 @@ __help__ = """
 - /moonanimation 🌚
 - /clockanimation 🕛
 - /earthanimation 🌍
+
+Some of the *Fun* Stuff
 """
     
 POLICE_HANDLER = DisableAbleCommandHandler("police", police)
@@ -54,6 +57,6 @@ FBI_HANDLER = DisableAbleCommandHandler("fbi", fbi)
 dispatcher.add_handler(POLICE_HANDLER)    
 dispatcher.add_handler(FBI_HANDLER)
 
-__mod_name__ = "Animation"
+__mod_name__ = "Fun"
 __command_list__ = ["police", "fbi"]	
 __handlers__ = [POLICE_HANDLER, FBI_HANDLER]
