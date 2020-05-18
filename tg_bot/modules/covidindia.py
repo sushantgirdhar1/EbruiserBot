@@ -49,7 +49,7 @@ __help__ = """
 
 """
 
-__mod_name__ = 'Covid-19'
+__mod_name__ = 'Covid'
 
 COV_INDIA_HANDLER = CommandHandler('covindia', covindia)
 
