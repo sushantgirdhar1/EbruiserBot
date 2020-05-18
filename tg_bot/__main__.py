@@ -24,7 +24,7 @@ See [Basic Configurations List](t.me/ebruiser/58) ⚡️
 
 Join Bot support Channel @ebruiser .If you want to keep up with the bot news and bot updates.
 
-🌚🌝 Made with love by @sushantgirdhar
+Made with love by @sushantgirdhar
 
 Want to add me to your group? Click [Here!](t.me/ebruiser_bot?startgroup=botstart) .
 """
@@ -134,9 +134,9 @@ def start(bot: Bot, update: Update, args: List[str]):
             first_name = update.effective_user.first_name
             update.effective_message.reply_text(
                 PM_START_TEXT.format(escape_markdown(first_name), escape_markdown(bot.first_name), OWNER_ID),
-                parse_mode=ParseMode.MARKDOWN, reply_markup=InlineKeyboardMarkup(InlineKeyboardButton(text="❔ Help",
-                                                                       url="t.me/ebruiser_bot?start=help"))
-    else:
+                parse_mode=ParseMode.MARKDOWN, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Help",url="t.me/{}?start=help".format(bot.username))]]))
+        else:
+        
         update.effective_message.reply_text("Yo, wassup?")
 
 
