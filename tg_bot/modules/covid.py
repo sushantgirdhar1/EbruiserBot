@@ -39,12 +39,6 @@ def covid(bot: Bot, update: Update):
     message.reply_text(reply_text, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
 
 
-__help__ = """
- 
- - /covid get worldwide corona status
-"""
-
-__mod_name__ = 'COVID-19'
 
 COVID_HANDLER = CommandHandler("covid", covid, admin_ok=True)
 dispatcher.add_handler(COVID_HANDLER)
