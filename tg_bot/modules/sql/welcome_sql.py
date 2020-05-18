@@ -1,6 +1,5 @@
 import random
 import threading
-from typing import Union
 
 from sqlalchemy import Column, String, Boolean, UnicodeText, Integer, BigInteger
 
@@ -11,16 +10,92 @@ DEFAULT_WELCOME = 'Hey {first}, how are you?'
 DEFAULT_GOODBYE = 'Nice knowing ya!'
 
 DEFAULT_WELCOME_MESSAGES = [
-    "{first} joined the group!",
-    "{first} welcome to the group!",  
-    
+    "{first} is here!",
+    "Ready player {first}",
+    "Genos, {first} is here.",
+    "A wild {first} appeared.",
+    "{first} came in like a Lion!",
+    "{first} has joined your party.",
+    "{first} just joined. Can I get a heal?",
+    "{first} just joined the chat - asdgfhak!",
+    "{first} just joined. Everyone, look busy!",
+    "Welcome, {first}. Stay awhile and listen.",
+    "Welcome, {first}. We were expecting you ( ͡° ͜ʖ ͡°)",
+    "Welcome, {first}. We hope you brought pizza.",
+    "Welcome, {first}. Leave your weapons by the door.",
+    "Swoooosh. {first} just landed.",
+    "Brace yourselves. {first} just joined the chat.",
+    "{first} just joined. Hide your bananas.",
+    "{first} just arrived. Seems OP - please nerf.",
+    "{first} just slid into the chat.",
+    "A {first} has spawned in the chat.",
+    "Big {first} showed up!",
+    "Where’s {first}? In the chat!",
+    "{first} hopped into the chat. Kangaroo!!",
+    "{first} just showed up. Hold my beer.",
+    "Challenger approaching! {first} has appeared!",
+    "It's a bird! It's a plane! Nevermind, it's just {first}.",
+    "It's {first}! Praise the sun! \o/",
+    "Never gonna give {first} up. Never gonna let {first} down.",
+    "Ha! {first} has joined! You activated my trap card!",
+    "Cheers, love! {first}'s here!",
+    "Hey! Listen! {first} has joined!",
+    "We've been expecting you {first}",
+    "It's dangerous to go alone, take {first}!",
+    "{first} has joined the chat! It's super effective!",
+    "Cheers, love! {first} is here!",
+    "{first} is here, as the prophecy foretold.",
+    "{first} has arrived. Party's over.",
+    "{first} is here to kick butt and chew bubblegum. And {first} is all out of gum.",
+    "Hello. Is it {first} you're looking for?",
+    "{first} has joined. Stay a while and listen!",
+    "Roses are red, violets are blue, {first} joined this chat with you",
+    "Welcome {first}, Avoid Punches if you can!",
+    "It's a bird! It's a plane! - Nope, its {first}!",
+    "{first} Joined! - Ok.",
+    "All Hail {first}!",
+    "Hi, {first}. Don't lurk, Only Villans do that.",
+    "{first} has joined the battle bus.",
+    "A new Challenger enters!",
+    "Ok!",
+    "{first} just fell into the chat!",
+    "Something just fell from the sky! - oh, its {first}.",
+    "{first} Just teleported into the chat!",
+    "Hi, {first}, show me your Hunter License!",
+    "I'm looking for Garo, oh wait nvm it's {first}.",
+    "Welcome {first}, Leaving is not an option!",
+    "Run Forest! ..I mean...{first}.",
+    "{first} do 100 push-ups, 100 sit-ups, 100 squats, and a 10km running EVERY SINGLE DAY!!!",
+    "Huh?\nDid someone with a disaster level just join?\nOh wait, it's just {first}.",
+    "Hey, {first}, ever heard the King Engine?",
+    "Hey, {first}, Empty your pockets.",
+    "Hey, {first}!, Are you strong?",
+    "Call the Avengers! - {first} just joined the chat.",
+    "{first} joined. You must construct additional pylons.",
+    "Ermagherd. {first} is here.",
 ]
 DEFAULT_GOODBYE_MESSAGES = [
-    "{first} left the group! .",
-    "{first} has left the clan !.",
-    
+    "{first} will be missed.",
+    "{first} just went offline.",
+    "{first} has left the lobby.",
+    "{first} has left the clan.",
+    "{first} has left the game.",
+    "{first} has fled the area.",
+    "{first} is out of the running.",
+    "Nice knowing ya, {first}!",
+    "It was a fun time {first}.",
+    "We hope to see you again soon, {first}.",
+    "I donut want to say goodbye, {first}.",
+    "Goodbye {first}! Guess who's gonna miss you :')",
+    "Goodbye {first}! It's gonna be lonely without ya.",
+    "Please don't leave me alone in this place, {first}!",
+    "Good luck finding better shitposters than us, {first}!",
+    "You know we're gonna miss you {first}. Right? Right? Right?",
+    "Congratulations, {first}! You're officially free of this mess.",
+    "{first}. You were an opponent worth fighting.",
+    "You're leaving, {first}? Yare Yare Daze.",
 ]
-# Line 111 to 152 are references from https://bindingofisaac.fandom.com/wiki/Fortune_Telling_Machine
+
 
 class Welcome(BASE):
     __tablename__ = "welcome_pref"
@@ -74,15 +149,51 @@ class GoodbyeButtons(BASE):
         self.url = url
         self.same_line = same_line
 
-
 class WelcomeMute(BASE):
     __tablename__ = "welcome_mutes"
     chat_id = Column(String(14), primary_key=True)
     welcomemutes = Column(UnicodeText, default=False)
 
     def __init__(self, chat_id, welcomemutes):
-        self.chat_id = str(chat_id)  # ensure string
+        self.chat_id = str(chat_id) # ensure string
         self.welcomemutes = welcomemutes
+
+class CombotCASStatus(BASE):
+    __tablename__ = "cas_stats"
+    chat_id = Column(String(14), primary_key=True)
+    status = Column(Boolean, default=True)
+    autoban = Column(Boolean, default=False)
+    
+    def __init__(self, chat_id, status, autoban):
+        self.chat_id = str(chat_id) #chat_id is int, make sure it's string
+        self.status = status
+        self.autoban = autoban
+
+class BannedChat(BASE):
+    __tablename__ = "chat_blacklists"
+    chat_id = Column(String(14), primary_key=True)
+    
+    def __init__(self, chat_id):
+        self.chat_id = str(chat_id) #chat_id is int, make sure it is string
+
+class DefenseMode(BASE):
+    __tablename__ = "defense_mode"
+    chat_id = Column(String(14), primary_key=True)
+    status = Column(Boolean, default=False)
+    
+    def __init__(self, chat_id, status):
+        self.chat_id = str(chat_id)
+        self.status = status
+
+class AutoKickSafeMode(BASE):
+    __tablename__ = "autokicks_safemode"
+    chat_id = Column(String(14), primary_key=True)
+    timeK = Column(Integer, default=90)
+    
+    def __init__(self, chat_id, timeK):
+        self.chat_id = str(chat_id)
+        self.timeK = timeK
+
 
 
 class WelcomeMuteUsers(BASE):
@@ -96,31 +207,25 @@ class WelcomeMuteUsers(BASE):
         self.chat_id = str(chat_id)
         self.human_check = human_check
 
-class CleanServiceSetting(BASE):
-    __tablename__ = "clean_service"
-    chat_id = Column(String(14), primary_key=True)
-    clean_service = Column(Boolean, default=True)
-
-    def __init__(self, chat_id):
-        self.chat_id = str(chat_id)
-
-    def __repr__(self):
-        return "<Chat used clean service ({})>".format(self.chat_id)
-
 
 Welcome.__table__.create(checkfirst=True)
 WelcomeButtons.__table__.create(checkfirst=True)
 GoodbyeButtons.__table__.create(checkfirst=True)
 WelcomeMute.__table__.create(checkfirst=True)
 WelcomeMuteUsers.__table__.create(checkfirst=True)
-CleanServiceSetting.__table__.create(checkfirst=True)
+CombotCASStatus.__table__.create(checkfirst=True)
+BannedChat.__table__.create(checkfirst=True)
+DefenseMode.__table__.create(checkfirst=True)
+AutoKickSafeMode.__table__.create(checkfirst=True)
 
 INSERTION_LOCK = threading.RLock()
 WELC_BTN_LOCK = threading.RLock()
 LEAVE_BTN_LOCK = threading.RLock()
 WM_LOCK = threading.RLock()
-CS_LOCK = threading.RLock()
-
+CAS_LOCK = threading.RLock()
+BANCHATLOCK = threading.RLock()
+DEFENSE_LOCK = threading.RLock()
+AUTOKICK_LOCK = threading.RLock()
 
 def welcome_mutes(chat_id):
     try:
@@ -342,24 +447,44 @@ def get_gdbye_buttons(chat_id):
         SESSION.close()
 
 
-def clean_service(chat_id: Union[str, int]) -> bool:
+def get_cas_status(chat_id):
     try:
-        chat_setting = SESSION.query(CleanServiceSetting).get(str(chat_id))
-        if chat_setting:
-            return chat_setting.clean_service
-        return False
+        resultObj = SESSION.query(CombotCASStatus).get(str(chat_id))
+        if resultObj:
+            return resultObj.status
+        return True
     finally:
         SESSION.close()
 
+def set_cas_status(chat_id, status):
+    with CAS_LOCK:
+        ban = False
+        prevObj = SESSION.query(CombotCASStatus).get(str(chat_id))
+        if prevObj:
+            ban = prevObj.autoban
+            SESSION.delete(prevObj)
+        newObj = CombotCASStatus(str(chat_id), status, ban)
+        SESSION.add(newObj)
+        SESSION.commit()
 
-def set_clean_service(chat_id: Union[int, str], setting: bool):
-    with CS_LOCK:
-        chat_setting = SESSION.query(CleanServiceSetting).get(str(chat_id))
-        if not chat_setting:
-            chat_setting = CleanServiceSetting(chat_id)
-
-        chat_setting.clean_service = setting
-        SESSION.add(chat_setting)
+def get_cas_autoban(chat_id):
+    try:
+        resultObj = SESSION.query(CombotCASStatus).get(str(chat_id))
+        if resultObj and resultObj.autoban:
+            return resultObj.autoban
+        return False
+    finally:
+        SESSION.close()
+        
+def set_cas_autoban(chat_id, autoban):
+    with CAS_LOCK:
+        status = True
+        prevObj = SESSION.query(CombotCASStatus).get(str(chat_id))
+        if prevObj:
+            status = prevObj.status
+            SESSION.delete(prevObj)
+        newObj = CombotCASStatus(str(chat_id), status, autoban)
+        SESSION.add(newObj)
         SESSION.commit()
 
 
@@ -380,3 +505,68 @@ def migrate_chat(old_chat_id, new_chat_id):
                 btn.chat_id = str(new_chat_id)
 
         SESSION.commit()
+
+def __load_blacklisted_chats_list(): #load shit to memory to be faster, and reduce disk access 
+    global BLACKLIST
+    try:
+        BLACKLIST = {x.chat_id for x in SESSION.query(BannedChat).all()}
+    finally:
+        SESSION.close()
+
+def blacklistChat(chat_id):
+    with BANCHATLOCK:
+        chat = SESSION.query(BannedChat).get(chat_id)
+        if not chat:
+            chat = BannedChat(chat_id)
+            SESSION.merge(chat)
+        SESSION.commit()
+        __load_blacklisted_chats_list()
+    
+def unblacklistChat(chat_id):
+    with BANCHATLOCK:
+        chat = SESSION.query(BannedChat).get(chat_id)
+        if chat:
+            SESSION.delete(chat)
+        SESSION.commit()
+        __load_blacklisted_chats_list()
+
+def isBanned(chat_id):
+    return chat_id in BLACKLIST
+
+def getDefenseStatus(chat_id):
+    try:
+        resultObj = SESSION.query(DefenseMode).get(str(chat_id))
+        if resultObj:
+            return resultObj.status
+        return False #default
+    finally:
+        SESSION.close()
+
+def setDefenseStatus(chat_id, status):
+    with DEFENSE_LOCK:
+        prevObj = SESSION.query(DefenseMode).get(str(chat_id))
+        if prevObj:
+            SESSION.delete(prevObj)
+        newObj = DefenseMode(str(chat_id), status)
+        SESSION.add(newObj)
+        SESSION.commit()
+
+def getKickTime(chat_id):
+    try:
+        resultObj = SESSION.query(AutoKickSafeMode).get(str(chat_id))
+        if resultObj:
+            return resultObj.timeK
+        return 90 #90 seconds
+    finally:
+        SESSION.close()
+
+def setKickTime(chat_id, value):
+    with AUTOKICK_LOCK:
+        prevObj = SESSION.query(AutoKickSafeMode).get(str(chat_id))
+        if prevObj:
+            SESSION.delete(prevObj)
+        newObj = AutoKickSafeMode(str(chat_id), int(value))
+        SESSION.add(newObj)
+        SESSION.commit()
+
+__load_blacklisted_chats_list()

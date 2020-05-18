@@ -41,6 +41,12 @@ def fbi(bot: Bot, update: Update):
 __help__ = """
 - /police : Sends a police emoji animation. 
 - /fbi : Send O\_O animation
+- /love ❣️
+- /hack 👨‍💻
+- /bombs 💣
+- /moonanimation 🌚
+- /clockanimation 🕛
+- /earthanimation 🌍
 """
     
 POLICE_HANDLER = DisableAbleCommandHandler("police", police)

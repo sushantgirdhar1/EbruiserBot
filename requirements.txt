@@ -26,3 +26,7 @@ tswift
 gTTS
 spamwatch
 timeout-decorator
+wikipedia
+pyowm
+tabulate
+parsel
