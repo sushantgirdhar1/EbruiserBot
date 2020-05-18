@@ -213,6 +213,7 @@ __help__ = """
  - /gps: <location> Get gps location.
  - /cash : currency converter : example syntax: /cash 1 USD INR
  - /wiki text: Returns search from wikipedia for the input text
+ - /paste - Do a paste at `neko.bin
  
 Want to get the lyrics of your favorite songs straight from the app? This module is perfect for that!
 *Available commands:*
