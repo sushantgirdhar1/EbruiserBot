@@ -42,11 +42,6 @@ def gps(bot: Bot, update: Update, args: List[str]):
         update.message.reply_text("I can't find that")
 
 
-__help__ = """
-- /gps: <location> Get gps location..
-"""
-
-__mod_name__ = "Location"
 
 GPS_HANDLER = DisableAbleCommandHandler("gps", gps, pass_args=True)
 
