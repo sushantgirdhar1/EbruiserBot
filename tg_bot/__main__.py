@@ -17,7 +17,7 @@ from tg_bot.modules.helper_funcs.chat_status import is_user_admin
 from tg_bot.modules.helper_funcs.misc import paginate_modules
 
 PM_START_TEXT = """
-Hello {}, I am {}  ! , 📲With Best Group Management Features .
+Hello {}, I am an {}  ! , 📲With Best Group Management Features .
 
 ⚙️Click /help to find out more about how to use me to my full potential
 
