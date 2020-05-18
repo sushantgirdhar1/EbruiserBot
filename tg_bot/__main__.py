@@ -18,14 +18,13 @@ from tg_bot.modules.helper_funcs.misc import paginate_modules
 
 PM_START_TEXT = """
 Hello {}, I am {}  ! , 📲With Best Group Management Features . 
+⚙️Click Help button to find out more about how to use me to my full potential!
 
-⚙️Click /help to find out more about how to use me to my full potential.
+See [Basic Configurations List](t.me/ebruiser/58) ⚡️
 
-See [Basic Configurations Here](t.me/ebruiser/58) ⚡️
+Join Bot support Channel @ebruiser .If you want to keep up with the bot news and bot updates.
 
-Join Bot support Channel {}.If you want to keep up with the bot news, bot updates and bot support group,if you need any bot support or help
-
-Made with love by @sushantgirdhar
+🌚🌝 Made with love by @sushantgirdhar
 
 Want to add me to your group? Click [Here!](t.me/ebruiser_bot?startgroup=botstart) .
 """
