@@ -269,26 +269,9 @@ def love(bot: Bot, update: Update):
     for x in range(EDIT_TIMES):
         msg.edit_text(love_siren[x%5])
         time.sleep(EDIT_SLEEP)
-    msg.edit_text('പ്രണയം  😂 ')
+    msg.edit_text('😂 ')
 
 
-
-
-
-__help__ = """
-
-- /love ❣️
-
-- /hack 👨‍💻
-
-- /bombs 💣
-
-- /moonanimation 🌚
-
-- /clockanimation 🕛
-
-- /earthanimation 🌍
-"""
 
 
 
@@ -305,7 +288,5 @@ dispatcher.add_handler(EARTHANIMATION_HANDLER)
 dispatcher.add_handler(MOONANIMATION_HANDLER)
 dispatcher.add_handler(CLOCKANIMATION_HANDLER)
 
-
-__mod_name__ = "EMOJIS"
 __command_list__ = ["love", "hack", "bombs", "moonanimation", "clockanimation", "earthanimation"]
 __handlers__ = [LOVE_HANDLER, HACK_HANDLER, BOMBS_HANDLER, MOONANIMATION_HANDLER, CLOCKANIMATION_HANDLER, EARTHANIMATION_HANDLER]
