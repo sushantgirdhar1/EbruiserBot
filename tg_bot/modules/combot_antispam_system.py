@@ -295,7 +295,6 @@ def __chat_settings__(chat_id, user_id):
            "It's goodbye preference is `{}`.".format(welcome_pref, goodbye_pref)
 
 __help__ = """
-{}
 Commands:
 
  - /casver: Returns the API version that the bot is currently running
@@ -314,7 +313,7 @@ Commands:
  
  Also *Admin Only*
  
- Along , with CAS Bans . We have Added Spamwatch API to Gbans . you can turn on all the protection by just 
+ Along , with CAS Bans . We have Added *Spamwatch* API to Global Bans . you can turn on all the protection by just 
  - /gbanstat on : this will turn it on 
 """
 
