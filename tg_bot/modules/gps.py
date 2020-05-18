@@ -46,7 +46,7 @@ __help__ = """
 - /gps: <location> Get gps location..
 """
 
-__mod_name__ = "location"
+__mod_name__ = "Location"
 
 GPS_HANDLER = DisableAbleCommandHandler("gps", gps, pass_args=True)
 
