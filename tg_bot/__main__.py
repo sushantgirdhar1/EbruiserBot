@@ -140,7 +140,7 @@ def start(bot: Bot, update: Update, args: List[str]):
                 PM_START_TEXT.format(escape_markdown(first_name), escape_markdown(bot.first_name), OWNER_ID),
                 parse_mode=ParseMode.MARKDOWN, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="➕ Add me to a Group ➕",
                                                                        url="t.me/{}?startgroup=true".format(bot.username))]]))
-                 keyboard += [[InlineKeyboardButton(text="🛠 Reporting", url="t.me/ebruiser/"), 
+            keyboard += [[InlineKeyboardButton(text="🛠 Reporting", url="t.me/ebruiser/"), 
         InlineKeyboardButton(text="❔ Help", url="t.me/ebruiser/")]]             
 
     else:
