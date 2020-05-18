@@ -135,7 +135,7 @@ def slist(bot: Bot, update: Update):
 
 __help__ = """
 **Who is Sushant ?
-*He is My Only Creator*
+*He is creator and owner*
 
 - /donate: Gives you info on how to support me and my creator.
 
