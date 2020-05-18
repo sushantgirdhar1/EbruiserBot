@@ -141,7 +141,7 @@ dispatcher.add_handler(DND_REGEX_HANDLER, DND_GROUP)
 dispatcher.add_handler(NO_DND_HANDLER, DND_GROUP)
 dispatcher.add_handler(DND_REPLY_HANDLER, DND_REPLY_GROUP)
 
-__mod_name__ = "dnd"
+__mod_name__ = "DND"
 __command_list__ = ["dnd"]
 __handlers__ = [(DND_HANDLER, DND_GROUP), (DND_REGEX_HANDLER, DND_GROUP), (NO_DND_HANDLER, DND_GROUP),
                 (DND_REPLY_HANDLER, DND_REPLY_GROUP)]
