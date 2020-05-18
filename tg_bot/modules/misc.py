@@ -205,6 +205,7 @@ __help__ = """
  - /tts <word> : text to speech- gives you audio of that word
  - /wall <word> : gives you HD wallpaper related to the word .
  - /gbanstat on : we are now connected with spamwatch now do this to stop global spammers .
+ - /whois : tell u about the complete details of the user
 """
 
 ID_HANDLER = DisableAbleCommandHandler("id", get_id, pass_args=True)
