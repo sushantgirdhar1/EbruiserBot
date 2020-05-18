@@ -300,7 +300,7 @@ Commands:
  - /casver: Returns the API version that the bot is currently running
  - /cascheck: Checks you or another user for CAS BAN
  
-*Admin only:* for CAS Bans
+*Admin only:* for *CAS Bans*
 
  - /setcas <on/off/true/false>: Enables/disables CAS Checking on welcome
  - /getcas: Gets the current CAS settings
@@ -311,7 +311,7 @@ Commands:
  - /setkicktime: sets new auto-kick time value (between 30 and 900 seconds)
  - /cas: Info about CAS. (What is CAS?)
  
- Also *Admin Only*
+ Also *Admin Only* For *SpamWatch*
  
  Along , with CAS Bans . We have Added *Spamwatch* API to Global Bans . you can turn on all the protection by just 
  - /gbanstat on : this will turn it on 
