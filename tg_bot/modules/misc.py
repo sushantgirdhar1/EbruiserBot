@@ -229,7 +229,7 @@ Available commands-
  - /urban <word>: Same as /ud         
                   
 *Special | COVID-19*         
- - /covindia <state>: Get real time COVID-19 stats for the input *INDIAN* state
+ - /covindia <state>: Get real time COVID-19 stats for the input *Indian* state
  - /corona : Gets a random Argument from the bot
          
 """
