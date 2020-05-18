@@ -59,6 +59,7 @@ Some of the *Fun* Stuff
  - /bluetext : check urself :V
  - /roll : Roll a dice.
  - /rlg : Join ears,nose,mouth and create an emo ;-;
+ - /react: Reacts with a random reaction
 """
     
 POLICE_HANDLER = DisableAbleCommandHandler("police", police)
