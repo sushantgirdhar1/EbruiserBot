@@ -216,7 +216,7 @@ __help__ = f"""
  - /paste - Do a paste at neko.bin
  - /time <query> : Gives information about a timezone,Query:Country Code/Country Name/Timezone Name
  
-Want to get the lyrics of your favorite songs straight from the app? This module is perfect for that!
+Want to get the *lyrics of your favorite songs* straight from the app? This module is perfect for that!
 *Available commands*
  - /lyrics <song>: returns the lyrics of that song.
  You can either enter just the song name or both the artist and song name
@@ -225,6 +225,11 @@ Here is the help for *Translator* Module
  - /tr or /tl (language code) as reply to a long message.
 Example: /tr en - translates something to english. 
          /tr hi-en - translates hindi to english.
+         
+*Special | COVID-19*         
+ - /covindia <state>: Get real time COVID-19 stats for the input *INDIAN* state
+ - /corona : Gets a random Argument from the bot
+         
 """
 
 ID_HANDLER = DisableAbleCommandHandler("id", get_id, pass_args=True)
