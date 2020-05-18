@@ -315,10 +315,7 @@ Commands:
  
  Along , with CAS Bans . We have Added *Spamwatch* API to Global Bans . you can turn on all the protection by just 
  - /gbanstat on : this will turn it on 
- 
- Also , we have introduced *SAFE MODE* 
- - /safemode <on/off/yes/no>: Disallows new users to send media for 24 hours after joining a group.
-    Use unmute to unrestrict them
+
 """
 
 __mod_name__ = "AntiSpam"
