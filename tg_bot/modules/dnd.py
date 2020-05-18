@@ -128,6 +128,9 @@ def check_dnd(bot, update, user_id, fst_name, userc_id):
 
 
 __help__ = """
+DND means Do Not Disturb . if you mark yourself dnd . Bot will mark youself as dnd . and if someone tag you or mentions you , Bot will automatically replies to the person that you are on *Study Mode* . Whenever u come back online and message in group , then bot will turn DND Mode i.e Study Mode off automatically .
+Note: Once Dnd , then bot will trigger dnd on all the groups , where Bot is Present .
+*Availaible Commands:*
  - /dnd <reason>: mark yourself as DND(Do Not Disturb).
 """
 
@@ -141,7 +144,7 @@ dispatcher.add_handler(DND_REGEX_HANDLER, DND_GROUP)
 dispatcher.add_handler(NO_DND_HANDLER, DND_GROUP)
 dispatcher.add_handler(DND_REPLY_HANDLER, DND_REPLY_GROUP)
 
-__mod_name__ = "DND"
+__mod_name__ = "Study Mode"
 __command_list__ = ["dnd"]
 __handlers__ = [(DND_HANDLER, DND_GROUP), (DND_REGEX_HANDLER, DND_GROUP), (NO_DND_HANDLER, DND_GROUP),
                 (DND_REPLY_HANDLER, DND_REPLY_GROUP)]
