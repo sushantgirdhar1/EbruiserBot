@@ -17,12 +17,14 @@ from tg_bot.modules.helper_funcs.chat_status import is_user_admin
 from tg_bot.modules.helper_funcs.misc import paginate_modules
 
 PM_START_TEXT = """
-Hello {}, I am {}  ! , 📲With Best Group Management Features . 
-⚙️Click /help to find out more about how to use me to my full potential
-
-Made with love by @sushantgirdhar 💫
+Hello {}, I am {}  ! , 📲With Best Group Management Features .⚙️Click /help to find out more about how to use me to my full potential
+Click basic commands button to know how to secure your group.
 
 Follow @ebruiser if you want to keep up with the bot news, bot updates and bot downtime!
+
+Made with love by 💁🏻‍♂️ @sushantgirdhar
+
+Want to add me to your group?[Click Here](t.me/ebruiser_bot?startgroup=botstart)
 """
 
 HELP_STRINGS = """
@@ -35,8 +37,6 @@ I have lots of handy features, such as warning system, a note keeping system, an
 *Main* commands available:
  - /start: start the bot
  - /help: PM's you this message.
- - /help <module name>: PM's you info about that module.
- - /donate: information about how to donate!
 
 If you have any bugs or questions on how to use me or need helper in setting up the bot , head to @ebruiser .
 {}
@@ -136,8 +136,8 @@ def start(bot: Bot, update: Update, args: List[str]):
             first_name = update.effective_user.first_name
             update.effective_message.reply_text(
                 PM_START_TEXT.format(escape_markdown(first_name), escape_markdown(bot.first_name), OWNER_ID),
-                parse_mode=ParseMode.MARKDOWN, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="➕ Add me to a Group ➕",
-                                                                       url="t.me/ebruiser/")]]))
+                parse_mode=ParseMode.MARKDOWN, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="🛠 Basic Configuration Checklist",
+                                                                       url="t.me/ebruiser/58")]]))
           
 
     else:
