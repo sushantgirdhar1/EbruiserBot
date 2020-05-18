@@ -103,23 +103,7 @@ def list_chatbot_chats(bot: Bot, update: Update):
         except RetryAfter as e:
             sleep(e.retry_after)
     update.effective_message.reply_text(text, parse_mode="HTML")
-
-__mod_name__ = "Chatbot"
-
-__help__ = f"""
-Chatbot utilizes the CoffeeHouse API and allows Bot to talk back making your chat more interactive.
-
-This is an ongoing upgrade and is only available in your chats if you reach out to {SUPPORT_CHAT} and ask for it. 
-
-As Now , We Had Only 100 free sessions from Lydia Coffeehouse , so this is Owner Restricted Command
-Powered by Lydia 
-
-Commands: These only work My Owner (He can enable auto chat in a group ) 
- - /addchat     : Enables Chatbot mode in the chat.
- - /rmchat      : Disables Chatbot mode in the chat.
- - /listaichats : Lists the chats the chatmode is enabled in.
-"""         
-                    
+     
                     
 ADD_CHAT_HANDLER = CommandHandler("addchat", add_chat, filters=CustomFilters.dev_filter)
 REMOVE_CHAT_HANDLER = CommandHandler("rmchat", remove_chat, filters=CustomFilters.dev_filter)
