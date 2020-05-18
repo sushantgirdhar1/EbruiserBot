@@ -164,6 +164,30 @@ def info(bot: Bot, update: Update, args: List[str]):
             text += "\n\n" + mod_info
 
     update.effective_message.reply_text(text, parse_mode=ParseMode.HTML, disable_web_page_preview=True)
+    
+    
+    
+@bot_admin
+@can_restrict
+@user_admin
+def safe_mode(bot: Bot, update: Update, args: List[str]):
+    chat = update.effective_chat
+    message = update.effective_message
+    if not args:
+        message.reply_text("This chat has its Safe Mode set to *{}*".format(is_safemoded(chat.id).safemode_status), parse_mode=ParseMode.MARKDOWN)
+        return
+
+    if str(args[0]).lower() in ["on", "yes"]:
+        set_safemode(chat.id, True)
+        message.reply_text("Safe Mode has been set to *{}*".format(is_safemoded(chat.id).safemode_status), parse_mode=ParseMode.MARKDOWN)
+        return
+
+    elif str(args[0]).lower() in ["off", "no"]:
+        set_safemode(chat.id, False)
+        message.reply_text("Safe Mode has been set to *{}*".format(is_safemoded(chat.id).safemode_status), parse_mode=ParseMode.MARKDOWN)
+        return
+    else:
+        message.reply_text("I only recognize the arguments `{}`, `{}`, `{}` or `{}`".format("Yes", "No", "On", "Off"), parse_mode=ParseMode.MARKDOWN)    
 
 
 @run_async
