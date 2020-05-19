@@ -118,12 +118,12 @@ def check_dnd(bot, update, user_id, fst_name, userc_id):
         if not user.reason:
             if int(userc_id) == int(user_id):
                 return
-            res = "{} is dnd".format(fst_name)
+            res = "{} is on study mode".format(fst_name)
             update.effective_message.reply_text(res)
         else:
             if int(userc_id) == int(user_id):
                 return
-            res = "{} is dnd.\nReason: {}".format(fst_name, user.reason)
+            res = "{} is on study mode.\nReason: {}".format(fst_name, user.reason)
             update.effective_message.reply_text(res)
 
 
