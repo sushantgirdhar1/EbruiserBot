@@ -24,7 +24,7 @@ class DND(BASE):
 DND.__table__.create(checkfirst=True)
 INSERTION_LOCK = threading.RLock()
 
-dnd_USERS = {}
+DND_USERS = {}
 
 
 def is_dnd(user_id):
@@ -46,7 +46,7 @@ def set_dnd(user_id, reason=""):
         else:
             curr.is_dnd = True
 
-        dnd_USERS[user_id] = reason
+        DND_USERS[user_id] = reason
 
         SESSION.add(curr)
         SESSION.commit()
