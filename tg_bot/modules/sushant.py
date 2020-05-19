@@ -134,13 +134,13 @@ def slist(bot: Bot, update: Update):
     message.reply_text(text2 + "\n", parse_mode=ParseMode.MARKDOWN)
 
 __help__ = """
-**Who is Sushant ?
-*He is creator and owner*
+**Who is Sushant Girdhar?
+*He is my creator and owner*
 
 - /donate: Gives you info on how to support me and my creator.
 
-*Visit him here*
-*https://sushantgirdhar.github.io/*
+
+🌎[Visit him here](sushantgirdhar.github.io/)
 **
 """
 
