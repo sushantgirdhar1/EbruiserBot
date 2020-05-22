@@ -5,7 +5,7 @@ from typing import List
 from telegram import Bot, Update, ParseMode
 from telegram.error import BadRequest
 from telegram.ext import CommandHandler, MessageHandler, Filters, run_async
-
+from tg_bot.modules.helper_funcs.regex_helper import infinite_loop_check, regex_searcher
 import tg_bot.modules.sql.blacklist_sql as sql
 from tg_bot import dispatcher, LOGGER
 from tg_bot.modules.disable import DisableAbleCommandHandler
@@ -149,12 +149,10 @@ def del_blacklist(bot: Bot, update: Update):
     chat_filters = sql.get_chat_blacklist(chat.id)
     for trigger in chat_filters:
         pattern = r"( |^|[^\w])" + trigger + r"( |$|[^\w])"
-        try:
-          match = re.search(pattern, to_match, flags=re.IGNORECASE)
-        except Exception:
-          sql.rm_from_blacklist(chat.id, trigger)
-          msg.reply_text(f'Removed {trigger} from blacklist because of broken regex')
-          return
+        match = regex_searcher(pattern, to_match)
+        if not match:
+            #Skip to next item in blacklist
+            continue
         if match:
             try:
                 message.delete()
@@ -184,6 +182,7 @@ __help__ = f"""
 Blacklists Words are used to stop certain triggers from being said in a group. Any time the trigger is mentioned, \
 the message will immediately be deleted. A good combo is sometimes to pair this up with warn filters!
 *NOTE:* blacklists do not affect group admins.
+
  - /blacklist: View the current blacklisted words.
 *Admin only:*
  - /addblacklist <triggers>: Add a trigger to the blacklist. Each line is considered one trigger, so using different \
@@ -197,6 +196,7 @@ Here is the Help for *URL* or *Domain Blacklisting*
  Domain blacklisting is used to stop certain domains from being mentioned in a group, Any time an url on that domain is mentioned, /
 the message will immediately be deleted.
 *NOTE:* domain blacklisting do not affect group admins.
+
 - /geturl: View the current blacklisted urls
 *Admin only:*
 - /addurl <urls>: Add a domain to the blacklist. The bot will automatically parse the url.
@@ -213,4 +213,5 @@ dispatcher.add_handler(UNBLACKLIST_HANDLER)
 dispatcher.add_handler(BLACKLIST_DEL_HANDLER, group=BLACKLIST_GROUP)
 
 __mod_name__ = "Blacklist"
+__handlers__ = [BLACKLIST_HANDLER, ADD_BLACKLIST_HANDLER, UNBLACKLIST_HANDLER, (BLACKLIST_DEL_HANDLER, BLACKLIST_GROUP)]
 __handlers__ = [BLACKLIST_HANDLER, ADD_BLACKLIST_HANDLER, UNBLACKLIST_HANDLER, (BLACKLIST_DEL_HANDLER, BLACKLIST_GROUP)]
