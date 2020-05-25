@@ -234,7 +234,7 @@ __help__ = """
  - /clear <notename>: clear note with this name
  Note: Note names are case-insensitive, and they are automatically converted to lowercase before getting saved.
  
-*Here is the Help for Group Log Channel Module* 
+*Here is the Help for Group Log Channel* 
  *Admin only:*
 - /logchannel: get log channel info
 - /setlog: set the log channel.
@@ -252,6 +252,7 @@ Setting the log channel is done by:
 is mentioned. If you reply to a sticker with a keyword, the bot will reply with that sticker. NOTE: all filter \
 keywords are in lowercase. If you want your keyword to be a sentence, use quotes. eg: /filter "hey there" How you \
 doin?
+
  - /stop <filter keyword>: stop that filter.
  
 """
