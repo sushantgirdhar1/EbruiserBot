@@ -298,7 +298,6 @@ def __chat_settings__(chat_id, user_id):
 
 __help__ = """
  - /adminlist: list of admins in the chat
-
 *Admin only:*
  - /pin: silently pins the message replied to - add 'loud' or 'notify' to give notifs to users.
  - /unpin: unpins the currently pinned message
@@ -306,6 +305,16 @@ __help__ = """
  - /promote: promotes the user replied to
  - /demote: demotes the user replied to
  - /settitle: sets a custom title for an admin that the bot promoted
+ 
+*Here is the Help for Reporting* : It allow's members to report some other untoxicated mssg of members to the group admins . Admins will  get instant reports on their inbox to do the concerned actions.
+
+ - /report <reason>: reply to a message to report it to admins.
+ - @admin: reply to a message to report it to admins.
+NOTE: Neither of these will get triggered if used by admins.
+*Admin only:*
+ - /reports <on/off>: change report setting, or view current status.
+ - If done in pm, toggles your status.
+ - If in chat, toggles that chat's status.
 """
 
 ADMINLIST_HANDLER = DisableAbleCommandHandler(["adminlist", "admins"], adminlist)
