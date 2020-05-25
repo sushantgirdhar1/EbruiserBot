@@ -333,6 +333,14 @@ NOTE: Neither of these will get triggered if used by admins.
  - /reports <on/off>: change report setting, or view current status.
  - If done in pm, toggles your status.
  - If in chat, toggles that chat's status.
+ 
+ *Here is the Help for Bans*
+ - /punchme: punchs the user who issued the command
+*Admin only:*
+ - /ban <userhandle>: bans a user. (via handle, or reply)
+ - /tban <userhandle> x(m/h/d): bans a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
+ - /unban <userhandle>: unbans a user. (via handle, or reply)
+ - /punch <userhandle>: Punches a user out of the group, (via handle, or reply)
 """
 
 ADMINLIST_HANDLER = DisableAbleCommandHandler(["adminlist", "admins"], adminlist)
