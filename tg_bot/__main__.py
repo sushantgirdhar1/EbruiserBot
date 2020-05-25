@@ -39,10 +39,10 @@ If you have any bugs or questions on how to use me or need helper in setting up 
 And the following:
 """.format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n")
 
-DONATE_STRING = """Heya, glad to hear you want to donate!
-Bot is hosted on one of My Servers and doesn't require any donations as of now but \
-You can donate to the Code Moderator, Sushant
-There is one way of supporting him; [PayPal](paypal.me/ebruiser)"""
+DONATE_STRING = """I am glad to hear that you want to donate!
+EbruiserBot is hosted on one of Free Servers and doesn't require any donations as of now but \
+You can donate to the original writer of the Base code, Paul (Marie)
+There are two ways of supporting him; [PayPal](paypal.me/PaulSonOfLars), or [Monzo](monzo.me/paulnionvestergaardlarsen)."""
 
 IMPORTED = {}
 MIGRATEABLE = []
