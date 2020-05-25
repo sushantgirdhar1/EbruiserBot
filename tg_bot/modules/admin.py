@@ -309,6 +309,20 @@ __help__ = """
  - /tmute <userhandle> x(m/h/d): mutes a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
  - /unmute <userhandle>: unmutes a user. Can also be used as a reply, muting the replied to user.
  
+*Here is the Help for Purge Module* 
+
+  - /rules: get the rules for this chat.
+*Group Admins only:*
+ - /setrules <your rules here>: set the rules for this chat.
+ - /clearrules: clear the rules for this chat.
+ 
+*Here is the Help for Delete Module*
+
+ - /del: deletes the message you replied to
+ - /purge: deletes all messages between this and the replied to message.
+ - /purge <integer X>: deletes the replied message, and X messages following it if replied to a message.
+ - /purge <integer X>: deletes the number of messages starting from bottom. (Counts manaully deleted messages too)
+ 
 *Here is the Help for Reporting* : It allow's members to report some other untoxicated mssg of members to the group admins . Admins will  get instant reports on their inbox to do the concerned actions.
 
  - /report <reason>: reply to a message to report it to admins.
