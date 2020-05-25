@@ -28,7 +28,6 @@ def check_user_id(user_id: int, bot: Bot) -> Optional[str]:
 
 #I added extra new lines
 disasters = """ Bot has access levels we call as *"Admin Levels"*
-\n*Heroes Association* - Devs who can access the bots server and can execute, edit, modify bot code. Can also manage other Admins
 \n*God* - Only one exists, bot owner. 
 Owner has complete bot access, including bot adminship in chats Bot is at.
 \n*Dragons* - Have super user access, can gban, manage Admins lower than them and are admins in Bot.
