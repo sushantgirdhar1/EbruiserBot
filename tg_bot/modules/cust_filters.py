@@ -235,17 +235,6 @@ def __chat_settings__(chat_id, user_id):
     return "There are currently `{}` custom filters here.".format(len(cust_filters))
 
 
-__help__ = """
- - /filters: list all active filters in this chat.
-
-*Admin only:*
- - /filter <keyword> <reply message>: add a filter to this chat. The bot will now reply that message whenever 'keyword'\
-is mentioned. If you reply to a sticker with a keyword, the bot will reply with that sticker. NOTE: all filter \
-keywords are in lowercase. If you want your keyword to be a sentence, use quotes. eg: /filter "hey there" How you \
-doin?
- - /stop <filter keyword>: stop that filter.
-"""
-
 FILTER_HANDLER = CommandHandler("filter", filters)
 STOP_HANDLER = CommandHandler("stop", stop_filter)
 LIST_HANDLER = DisableAbleCommandHandler("filters", list_handlers, admin_ok=True)
@@ -256,5 +245,5 @@ dispatcher.add_handler(STOP_HANDLER)
 dispatcher.add_handler(LIST_HANDLER)
 dispatcher.add_handler(CUST_FILTER_HANDLER, HANDLER_GROUP)
 
-__mod_name__ = "Filters"
+
 __handlers__ = [FILTER_HANDLER, STOP_HANDLER, LIST_HANDLER, (CUST_FILTER_HANDLER, HANDLER_GROUP)]
