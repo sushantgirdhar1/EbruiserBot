@@ -135,10 +135,9 @@ def slist(bot: Bot, update: Update):
 
 __help__ = """
 **Who is Sushant Girdhar?
-*He is my creator and owner*
+*He is my Creator*
 
 - /donate: Gives you info on how to support me and my creator.
-
 
 🌎[Visit him here](sushantgirdhar.github.io/)
 **
