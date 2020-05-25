@@ -97,13 +97,6 @@ def del_message(bot: Bot, update: Update) -> str:
     return ""
 
 
-__help__ = """
-*Admin only:*
- - /del: deletes the message you replied to
- - /purge: deletes all messages between this and the replied to message.
- - /purge <integer X>: deletes the replied message, and X messages following it if replied to a message.
- - /purge <integer X>: deletes the number of messages starting from bottom. (Counts manaully deleted messages too)
-"""
 
 DELETE_HANDLER = DisableAbleCommandHandler("del", del_message, filters=Filters.group)
 PURGE_HANDLER = DisableAbleCommandHandler("purge", purge, filters=Filters.group, pass_args=True)
@@ -111,6 +104,5 @@ PURGE_HANDLER = DisableAbleCommandHandler("purge", purge, filters=Filters.group,
 dispatcher.add_handler(DELETE_HANDLER)
 dispatcher.add_handler(PURGE_HANDLER)
 
-__mod_name__ = "Purges"
 __command_list__ = ["del", "purge"]
 __handlers__ = [DELETE_HANDLER, PURGE_HANDLER]
