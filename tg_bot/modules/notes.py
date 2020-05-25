@@ -226,23 +226,37 @@ def __chat_settings__(chat_id, user_id):
 
 
 __help__ = """
- - /get <notename>: get the note with this notename
- - #<notename>: same as /get
+*Here is the Help for Group Notes Module*
  - /notes or /saved: list all saved notes in this chat
-
-If you would like to retrieve the contents of a note without any formatting, use `/get <notename> noformat`. This can \
-be useful when updating a current note.
-
 *Admin only:*
- - /save <notename> <notedata>: saves notedata as a note with name notename
-A button can be added to a note by using standard markdown link syntax - the link should just be prepended with a \
-`buttonurl:` section, as such: `[somelink](buttonurl:example.com)`. Check /markdownhelp for more info.
+ - /save <notename> <notedata>: saves notedata as a note with name notename.To Add Button in Specific Note .Check /markdownhelp for more info.
  - /save <notename>: save the replied message as a note with name notename
  - /clear <notename>: clear note with this name
  Note: Note names are case-insensitive, and they are automatically converted to lowercase before getting saved.
+ 
+*Here is the Help for Group Log Channel Module* 
+ *Admin only:*
+- /logchannel: get log channel info
+- /setlog: set the log channel.
+- /unsetlog: unset the log channel.
+
+Setting the log channel is done by:
+- adding the bot to the desired channel (as an admin!)
+- sending /setlog in the channel
+- forwarding the /setlog to the group
+
+*Here is the Help for Filters Module*
+ - /filters: list all active filters in this chat.
+*Admin only:*
+ - /filter <keyword> <reply message>: add a filter to this chat. The bot will now reply that message whenever 'keyword'\
+is mentioned. If you reply to a sticker with a keyword, the bot will reply with that sticker. NOTE: all filter \
+keywords are in lowercase. If you want your keyword to be a sentence, use quotes. eg: /filter "hey there" How you \
+doin?
+ - /stop <filter keyword>: stop that filter.
+ 
 """
 
-__mod_name__ = "Notes"
+__mod_name__ = "Group Extra's"
 
 GET_HANDLER = CommandHandler("get", cmd_get, pass_args=True)
 HASH_GET_HANDLER = RegexHandler(r"^#[^\s]+", hash_get)
