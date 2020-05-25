@@ -124,7 +124,7 @@ __help__ = f"""
  - /markdownhelp: quick summary of how markdown works in telegram - can only be called in private chats.
  - /tts <word> : text to speech- gives you audio of that word
  - /wall <word> : gives you HD wallpaper related to the word .
- - /info : tell u about the complete details of the user
+ - /whois : tell u about the complete details of the user
  - /ping - get ping time of bot to telegram server
  - /pingall - get all listed ping time
  - /weebify <text>: returns a weebified text
