@@ -305,6 +305,9 @@ __help__ = """
  - /promote: promotes the user replied to
  - /demote: demotes the user replied to
  - /settitle: sets a custom title for an admin that the bot promoted
+ - /mute <userhandle>: silences a user. Can also be used as a reply, muting the replied to user.
+ - /tmute <userhandle> x(m/h/d): mutes a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
+ - /unmute <userhandle>: unmutes a user. Can also be used as a reply, muting the replied to user.
  
 *Here is the Help for Reporting* : It allow's members to report some other untoxicated mssg of members to the group admins . Admins will  get instant reports on their inbox to do the concerned actions.
 
