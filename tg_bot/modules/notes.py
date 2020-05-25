@@ -245,6 +245,14 @@ Setting the log channel is done by:
 - sending /setlog in the channel
 - forwarding the /setlog to the group
 
+*Here is the Help for Disable Module* 
+
+- /cmds: check the current status of disabled commands
+ *Admin only:*
+- /enable <cmd name>: enable that command
+- /disable <cmd name>: disable that command
+- /listcmds: list all possible toggleable commands
+
 *Here is the Help for Filters Module*
  - /filters: list all active filters in this chat.
 *Admin only:*
@@ -257,7 +265,7 @@ doin?
  
 """
 
-__mod_name__ = "Group Extra's"
+__mod_name__ = "More 💁🏻‍♂️"
 
 GET_HANDLER = CommandHandler("get", cmd_get, pass_args=True)
 HASH_GET_HANDLER = RegexHandler(r"^#[^\s]+", hash_get)
