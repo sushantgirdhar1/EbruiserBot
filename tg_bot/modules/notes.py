@@ -265,7 +265,7 @@ doin?
  
 """
 
-__mod_name__ = "More 💁🏻‍♂️"
+__mod_name__ = "Extra's"
 
 GET_HANDLER = CommandHandler("get", cmd_get, pass_args=True)
 HASH_GET_HANDLER = RegexHandler(r"^#[^\s]+", hash_get)
