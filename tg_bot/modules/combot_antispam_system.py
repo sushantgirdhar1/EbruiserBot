@@ -318,7 +318,7 @@ Commands:
 
 """
 
-__mod_name__ = "AntiSpam🚫"
+__mod_name__ = "AntiSpam"
 
 SETCAS_HANDLER = CommandHandler("setcas", setcas, filters=Filters.group)
 GETCAS_HANDLER = CommandHandler("getcas", get_current_setting, filters=Filters.group)
