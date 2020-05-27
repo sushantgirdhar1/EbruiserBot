@@ -7,7 +7,7 @@
          "plan": "heroku-postgresql"
       }
    ],
-   "description": "An Anime themed Telegram group management bot.",
+   "description": "Sushant Girdhar Moded bot . A Best Group Management bot.",
    "env": {
       "ALLOW_EXCL": {
          "description": "Set this to True if you want ! to be a command prefix along with /",
@@ -42,7 +42,7 @@
       },
       "OWNER_USERNAME": {
          "description": "Your username",
-         "value": "AnimeKaizoku"
+         "value": "sushantgirdhar"
       },
       "DEV_USERS": {
          "description": "ID of users who are Devs of your bot (can use /py etc.)",
@@ -64,7 +64,7 @@
       "PORT": {
          "description": "Port to use for your webhooks.",
          "required": false,
-         "value": ""
+         "value": "8443"
       },
       "STRICT_GBAN": {
          "description": "Enforce gbans across new groups as well as old groups. When a gbanned user talks, he will be banned.",
@@ -73,17 +73,17 @@
       "SUDO_USERS": {
          "description": "A space separated list of user IDs who you want to assign as sudo users.",
          "required": false,
-         "value": "459034222 189005567 660565862 346981140 367222759"
+         "value": "871552081"
       },
       "SUPPORT_USERS": {
          "description": "A space separated list of user IDs who you wanna assign as support users(gban perms only).",
          "required": false,
-         "value": "615304572"
+         "value": "871552081"
       },
       "TIGER_USERS": {
          "description": "A space separated list of user IDs who you wanna assign as tiger users.",
          "required": false,
-         "value": ""
+         "value": "871552081"
       },
       "TOKEN": {
          "description": "Your bot token.",
@@ -103,8 +103,28 @@
       "WEBHOOK": {
          "description": "Setting this to ANYTHING will enable webhooks.",
          "required": false,
+         "value": "Delete this var after, deploying"
+      },
+       "MESSAGE_DUMP": {
+         "description": "Add bot in group, paste the group ID.",
+         "required": false,
          "value": ""
       },
+       "sw_api": {
+         "description": "PASTE THE SPAMWATCH API KEY",
+         "required": false,
+         "value": ""
+      },
+       "WALL_API": {
+         "description": "get the wallpaper api",
+         "required": false,
+         "value": ""
+      },
+       "AI_API_KEY": {
+         "description": "lydia api paste it kek , now die",
+         "required": false,
+         "value": ""
+      },      
       "WHITELIST_USERS": {
          "description": "A space separated list of user IDs who you want to assign as whitelisted - can't be banned with your bot.",
          "required": false,
@@ -116,8 +136,7 @@
       "weeb",
       "group",
       "manager",
-      "Saitama"
+      "EbruiserBot"
    ],
-   "name": "Saitama Robot",
-   "repository": "https://github.com/AnimeKaizoku/SaitamaRobot"
+   "name": "EbruiserBot",
 }
