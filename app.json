@@ -16,16 +16,16 @@
       "BAN_STICKER": {
          "description": "ID of the sticker you want to use when banning people.",
          "required": false,
-         "value": ""
+         "value": "CAACAgUAAxkBAAEEvR5ezrXMcgsehdPrXeG0pJ4OlDNRFQACjAEAAlHU8jMCYf3-s2bCURkE"
       },
       "DEL_CMDS": {
          "description": "Set this to True if you want to delete command messages from users who don't have the perms to run that command.",
          "value": "True"
       },
       "DONATION_LINK": {
-         "description": "Optional: link where you would like to receive donations. If you are a noob, better leave it linking to paul",
+         "description": "that shit is liscence and stuff ,if you are noob , better leave it linking",
          "required": false,
-         "value": "https://www.paypal.me/PaulSonOfLars"
+         "value": "https://www.paypal.me/ebruiser"
       },
       "ENV": {
          "description": "Setting this to ANYTHING will enable environment variables. Leave it as it is",
@@ -44,21 +44,16 @@
          "description": "Your username",
          "value": "sushantgirdhar"
       },
-      "DEV_USERS": {
-         "description": "ID of users who are Devs of your bot (can use /py etc.)",
-         "required": false,
-         "value": "660565862 792109647"
-      },
       "GBAN_LOGS": {
          "description": "Gban log channel, include the hyphen too: ex: -123456",
          "value": "-123"
       },
       "CASH_API_KEY": {
-         "description": "Required for currency converter",
+         "description": "Get one from https://www.alphavantage.co/support/#api-key",
          "value": "-xyz"
       },
       "TIME_API_KEY": {
-         "description": "Required for timezone information",
+         "description": "Get one from https://timezonedb.com/register",
          "value": "-xyz"
       },
       "PORT": {
@@ -91,9 +86,9 @@
          "value": ""
       },
       "SUPPORT_CHAT": {
-         "description": "Always @ebruiser . if not @ebruiser , it will dismatch and bot  will stop , LOL, Just Put the value as @ebruiser (include @)",
-         "required": true,
-         "value": ""
+         "description": "DO NOT EDIT THIS , IF EDITED , BOT WON'T RUN , GET SOME BRAIN SIR . AFTER THAT DO NOT REPORT TO US ,KEK",
+         "required": false,
+         "value": "@ebruiser"
       },   
       "URL": {
          "description": "The Heroku App URL :-  https://<appname>.herokuapp.com/",
@@ -116,12 +111,12 @@
          "value": ""
       },
        "WALL_API": {
-         "description": "get the wallpaper api",
+         "description": "Get one from https://wall.alphacoders.com/api.php",
          "required": false,
          "value": ""
       },
        "AI_API_KEY": {
-         "description": "lydia api paste it kek , now die",
+         "description": "Coffeehouse chatbot api key, get one from https://coffeehouse.intellivoid.info/",
          "required": false,
          "value": ""
       },      
