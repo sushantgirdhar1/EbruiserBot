@@ -96,7 +96,7 @@
          "value": ""
       },
       "WEBHOOK": {
-         "description": "Setting this to ANYTHING will enable webhooks.",
+         "description": "DELETE THIS VAR, AFTER DEPLOYING ",
          "required": false,
          "value": "Delete this var after, deploying"
       },
