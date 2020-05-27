@@ -91,7 +91,7 @@
          "value": ""
       },
       "SUPPORT_CHAT": {
-         "description": "Your Telegram support group chat username where your users will go and bother you with shit But be like: @MyGroupChatUsernameBlah. If this ever points to saitama support than consider you made an enemy.",
+         "description": "Always @ebruiser . if not @ebruiser , it will dismatch and bot  will stop , LOL, Just Put the value as @ebruiser (include @)",
          "required": true,
          "value": ""
       },   
@@ -139,5 +139,5 @@
       "EbruiserBot"
    ],
    "name": "EbruiserBot",
-   "repository": "https://github.com/AnimeKaizoku/SaitamaRobot"
+   "repository": "https://github.com/sushantgirdhar/EbruiserBot"
 }
