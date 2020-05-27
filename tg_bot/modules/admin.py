@@ -308,14 +308,7 @@ __help__ = """
  - /mute <userhandle>: silences a user. Can also be used as a reply, muting the replied to user.
  - /tmute <userhandle> x(m/h/d): mutes a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
  - /unmute <userhandle>: unmutes a user. Can also be used as a reply, muting the replied to user.
- 
-*Here is the Help for Rules Module* 
-
-  - /rules: get the rules for this chat.
-*Group Admins only:*
- - /setrules <your rules here>: set the rules for this chat.
- - /clearrules: clear the rules for this chat.
- 
+  
 *Here is the Help for Delete Module*
 
  - /del: deletes the message you replied to
