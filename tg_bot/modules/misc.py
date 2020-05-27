@@ -207,6 +207,7 @@ __help__ = f"""
  - /ping - get ping time of bot to telegram server
  - /pingall - get all listed ping time
  - /weebify <text>: returns a weebified text
+ - /zal <text>: fancy text only 
  - /gps: <location> Get gps location.
  - /cash : currency converter : example syntax: /cash 1 USD INR
  - /wiki text: Returns search from wikipedia for the input text
