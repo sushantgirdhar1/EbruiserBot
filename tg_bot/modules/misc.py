@@ -211,7 +211,9 @@ __help__ = f"""
  - /gps: <location> Get gps location.
  - /cash : currency converter : example syntax: /cash 1 USD INR
  - /wiki text: Returns search from wikipedia for the input text
- - /paste - Do a paste at neko.bin
+ - /paste: Create a paste or a shortened url using [dogbin](https://del.dog)
+ - /getpaste: Get the content of a paste or shortened url from [dogbin](https://del.dog)
+ - /pastestats: Get stats of a paste or shortened url from [dogbin](https://del.dog)
  - /time <query> : Gives information about a timezone,Query:Country Code/Country Name/Timezone Name
  - /lyrics <song>: returns the lyrics of that song,You can either enter just the song name or both the artist and song name
  
