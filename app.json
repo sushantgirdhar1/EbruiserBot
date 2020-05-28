@@ -7,7 +7,7 @@
          "plan": "heroku-postgresql"
       }
    ],
-   "description": "An Anime themed Telegram group management bot.",
+   "description": "Sushant Girdhar Moded bot . A Best Group Management bot.",
    "env": {
       "ALLOW_EXCL": {
          "description": "Set this to True if you want ! to be a command prefix along with /",
@@ -16,16 +16,16 @@
       "BAN_STICKER": {
          "description": "ID of the sticker you want to use when banning people.",
          "required": false,
-         "value": ""
+         "value": "CAACAgUAAxkBAAEEvR5ezrXMcgsehdPrXeG0pJ4OlDNRFQACjAEAAlHU8jMCYf3-s2bCURkE"
       },
       "DEL_CMDS": {
          "description": "Set this to True if you want to delete command messages from users who don't have the perms to run that command.",
          "value": "True"
       },
       "DONATION_LINK": {
-         "description": "Optional: link where you would like to receive donations. If you are a noob, better leave it linking to paul",
+         "description": "that shit is liscence and stuff ,if you are noob , better leave it linking",
          "required": false,
-         "value": "https://www.paypal.me/PaulSonOfLars"
+         "value": "https://www.paypal.me/ebruiser"
       },
       "ENV": {
          "description": "Setting this to ANYTHING will enable environment variables. Leave it as it is",
@@ -42,29 +42,24 @@
       },
       "OWNER_USERNAME": {
          "description": "Your username",
-         "value": "AnimeKaizoku"
-      },
-      "DEV_USERS": {
-         "description": "ID of users who are Devs of your bot (can use /py etc.)",
-         "required": false,
-         "value": "660565862 792109647"
+         "value": "sushantgirdhar"
       },
       "GBAN_LOGS": {
          "description": "Gban log channel, include the hyphen too: ex: -123456",
          "value": "-123"
       },
       "CASH_API_KEY": {
-         "description": "Required for currency converter",
+         "description": "Get one from https://www.alphavantage.co/support/#api-key",
          "value": "-xyz"
       },
       "TIME_API_KEY": {
-         "description": "Required for timezone information",
+         "description": "Get one from https://timezonedb.com/register",
          "value": "-xyz"
       },
       "PORT": {
          "description": "Port to use for your webhooks.",
          "required": false,
-         "value": ""
+         "value": "8443"
       },
       "STRICT_GBAN": {
          "description": "Enforce gbans across new groups as well as old groups. When a gbanned user talks, he will be banned.",
@@ -73,17 +68,17 @@
       "SUDO_USERS": {
          "description": "A space separated list of user IDs who you want to assign as sudo users.",
          "required": false,
-         "value": "459034222 189005567 660565862 346981140 367222759"
+         "value": "871552081"
       },
       "SUPPORT_USERS": {
          "description": "A space separated list of user IDs who you wanna assign as support users(gban perms only).",
          "required": false,
-         "value": "615304572"
+         "value": "871552081"
       },
       "TIGER_USERS": {
          "description": "A space separated list of user IDs who you wanna assign as tiger users.",
          "required": false,
-         "value": ""
+         "value": "871552081"
       },
       "TOKEN": {
          "description": "Your bot token.",
@@ -91,9 +86,9 @@
          "value": ""
       },
       "SUPPORT_CHAT": {
-         "description": "Your Telegram support group chat username where your users will go and bother you with shit But be like: @MyGroupChatUsernameBlah. If this ever points to saitama support than consider you made an enemy.",
-         "required": true,
-         "value": ""
+         "description": "DO NOT EDIT THIS , IF EDITED , BOT WON'T RUN , GET SOME BRAIN SIR . AFTER THAT DO NOT REPORT TO US ,KEK",
+         "required": false,
+         "value": "@ebruiser"
       },   
       "URL": {
          "description": "The Heroku App URL :-  https://<appname>.herokuapp.com/",
@@ -101,10 +96,30 @@
          "value": ""
       },
       "WEBHOOK": {
-         "description": "Setting this to ANYTHING will enable webhooks.",
+         "description": "DELETE THIS VAR, AFTER DEPLOYING ",
+         "required": false,
+         "value": "Delete this var after, deploying"
+      },
+       "MESSAGE_DUMP": {
+         "description": "Add bot in group, paste the group ID.",
          "required": false,
          "value": ""
       },
+       "sw_api": {
+         "description": "PASTE THE SPAMWATCH API KEY",
+         "required": false,
+         "value": ""
+      },
+       "WALL_API": {
+         "description": "Get one from https://wall.alphacoders.com/api.php",
+         "required": false,
+         "value": ""
+      },
+       "AI_API_KEY": {
+         "description": "Coffeehouse chatbot api key, get one from https://coffeehouse.intellivoid.info/",
+         "required": false,
+         "value": ""
+      },      
       "WHITELIST_USERS": {
          "description": "A space separated list of user IDs who you want to assign as whitelisted - can't be banned with your bot.",
          "required": false,
@@ -116,8 +131,8 @@
       "weeb",
       "group",
       "manager",
-      "Saitama"
+      "EbruiserBot"
    ],
-   "name": "Saitama Robot",
-   "repository": "https://github.com/AnimeKaizoku/SaitamaRobot"
+   "name": "EbruiserBot",
+   "repository": "https://github.com/sushantgirdhar/EbruiserBot"
 }
