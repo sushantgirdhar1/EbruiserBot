@@ -201,7 +201,7 @@ This repo was just revamped to suit an Baic Person. All original credits go to P
 
 Also, missing proper credit for blacklistusers taken from TheRealPhoenixBot (will add it later, this note says unless it is done)
 
-A big Thanks to SaitamaRobot [One Punch Support](https://t.me/OnePunchSupport).
+A big Thanks to SaitamaRobot [One Punch Support](https://t.me/OnePunchSupport) n\
 Another Big thanks [HarukaAya](https://https://t.me/HarukaAyaGroup) for Spamwatch Commits and other Commits 
 Any other authorship/credits can be seen through the commits.
 Should any be missing kindly let us know at  or simply submit a pull request on the readme.
