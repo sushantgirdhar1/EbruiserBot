@@ -47,7 +47,7 @@ def check_flood(bot: Bot, update: Update) -> str:
         )
         
         keyboard = InlineKeyboardMarkup(
-            [[InlineKeyboardButton("Unmute", callback_data="unmute_flooder({})".format(user.id))]]
+            [[InlineKeyboardButton("Unmute(Admins Only)", callback_data="unmute_flooder({})".format(user.id))]]
         )
         bot.send_message(chat.id,
             f"{mention_html(user.id, user.first_name)} has been muted for flooding the group!",
