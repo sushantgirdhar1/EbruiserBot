@@ -3,7 +3,7 @@
 
 A modular Telegram Python bot running on python3 with a sqlalchemy database.
 
-Originally a Marie fork, Ebruiser evolved further and was built to be more robust . for Controlling Spammers , we have added Spamwatch in Global Bans and Combot Anti Spam integration.
+Originally a Marie fork, Ebruiser evolved further and was built to be more robust . for Controlling Spammers , we have added **Spamwatch** in Global Bans and **Combot Anti Spam** integration.
 
 Can be found on telegram as [Auditor ✪](https://t.me/ebruiser_bot).
 
