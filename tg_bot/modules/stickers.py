@@ -229,15 +229,14 @@ def makepack_internal(msg, user, png_sticker, emoji, bot, packname, packnum):
 
 
 __help__ = """
-For *Normal Users*
+*#STICKERS*
 - /stickerid: reply to a sticker to me to tell you its file ID.
 - /getsticker: reply to a sticker to me to upload its raw PNG file.
 - /kang: reply to a sticker to add it to your pack.
 
-For *Advance Users*
+*#STICKER_BLACKLIST*
 Blacklist sticker is used to stop certain stickers. Whenever a sticker is sent, the message will be deleted immediately.
-
-*NOTE:* Blacklist stickers do not affect the group admin.
+*Note* Blacklist stickers do not affect the group admin.
  - /blsticker: See current blacklisted sticker.
 *Only admin:*
  - /addblsticker <sticker link>: Add the sticker trigger to the black list. Can be added via reply sticker.
