@@ -39,7 +39,7 @@ def fbi(bot: Bot, update: Update):
     msg.edit_text('Police is here!')
     
 __help__ = f"""
-*Here is the help for Animations Modules*
+*#ANIMATIONS*
 - /police : Sends a police emoji animation. 
 - /fbi : Send O\_O animation.
 - /love : send love emojis in diffrent colors.
@@ -49,7 +49,7 @@ __help__ = f"""
 - /clockanimation : clock ticking animations.
 - /earthanimation : earth revolving animation.
 
-*Here is the help for Fun Strings*
+*#FUN*
  - /runs: reply a random string from an array of replies.
  - /slap: slap a user, or get slapped if not a reply.
  - /shrug : get shrug XD.
@@ -60,12 +60,9 @@ __help__ = f"""
  - /roll : Roll a dice.
  - /rlg : Join ears,nose
  - /react: Reacts with a random reaction
- 
-*Here is the help for fun wording*
-Give a loud shout out in the chatroom, i.e /shout HELP, bot replies with huge coded HELP letters within the square. 
  - /shout <keyword>: write anything
  
-*Here is the help for Chatbot i.e AutoChat or AI Enabling*
+*#AUTO_CHAT*
 Chatbot utilizes the CoffeeHouse API and allows Bot to talk back making your chat more interactive. This is an ongoing upgrade and is only available in your chats if you reach out to @ebruiser and ask for it. As this is Bot Owner restricted Commands.Powered by *Lydia* .
  - /addchat     : Enables Chatbot mode
  - /rmchat      : Disables Chatbot mode 
