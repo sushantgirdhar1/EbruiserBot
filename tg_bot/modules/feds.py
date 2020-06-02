@@ -1752,7 +1752,7 @@ def fed_user_help(bot: Bot, update: Update):
 - `/fbanstat`: Shows if you/or the user you are replying to or their username is fbanned somewhere or not.
 - `/chatfed`: See the Federation in the current chat.\n""", parse_mode = ParseMode.MARKDOWN)   
 
-__mod_name__ = "Federations"
+__mod_name__ = "Federation"
 
 __help__ = """
 Everything is fun, until a spammer starts entering your group, and you have to block it. Then you need to start banning more, and more, and it hurts.
