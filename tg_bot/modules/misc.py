@@ -217,18 +217,18 @@ __help__ = f"""
  - /time <query> : Gives information about a timezone,Query:Country Code/Country Name/Timezone Name
  - /lyrics <song>: returns the lyrics of that song,You can either enter just the song name or both the artist and song name
  
-*Here is the help for Translator Module*
+*#TRANSLATOR*
  - /tr or /tl (language code) as reply to a long message.
 Example: /tr en - translates something to english. 
          /tr hi-en - translates hindi to english.
          
-*Here is the help for the Dictionary module*
+*#DICTIONARY*
 Ever stumbled upon a word that you didn't know of and wanted to look it up?,With this module, you can find the definitions of words without having to leave the app!
 Available commands-    
  - /ud <word>: Type the word or expression you want to search use.
  - /urban <word>: Same as /ud         
                   
-*Special | COVID-19*         
+*#COVID19*         
  - /covindia <state>: Get real time COVID-19 stats for the input *Indian* state
  - /corona : Gets a random Argument from the bot
          
