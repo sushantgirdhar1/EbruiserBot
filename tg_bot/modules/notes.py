@@ -226,7 +226,7 @@ def __chat_settings__(chat_id, user_id):
 
 
 __help__ = """
-*Here is the Help for Group Notes Module*
+*#NOTES*
  - /notes or /saved: list all saved notes in this chat
 *Admin only:*
  - /save <notename> <notedata>: saves notedata as a note with name notename.To Add Button in Specific Note .Check /markdownhelp for more info.
@@ -234,33 +234,30 @@ __help__ = """
  - /clear <notename>: clear note with this name
  Note: Note names are case-insensitive, and they are automatically converted to lowercase before getting saved.
  
-*Here is the Help for Group Log Channel* 
+*#LOG_CHANNEL* 
  *Admin only:*
 - /logchannel: get log channel info
 - /setlog: set the log channel.
 - /unsetlog: unset the log channel.
-
 Setting the log channel is done by:
 - adding the bot to the desired channel (as an admin!)
 - sending /setlog in the channel
 - forwarding the /setlog to the group
 
-*Here is the Help for Disable Module* 
-
+*#DISABLE* 
 - /cmds: check the current status of disabled commands
  *Admin only:*
 - /enable <cmd name>: enable that command
 - /disable <cmd name>: disable that command
 - /listcmds: list all possible toggleable commands
 
-*Here is the Help for Filters Module*
+*#FILTERS*
  - /filters: list all active filters in this chat.
 *Admin only:*
  - /filter <keyword> <reply message>: add a filter to this chat. The bot will now reply that message whenever 'keyword'\
 is mentioned. If you reply to a sticker with a keyword, the bot will reply with that sticker. NOTE: all filter \
 keywords are in lowercase. If you want your keyword to be a sentence, use quotes. eg: /filter "hey there" How you \
 doin?
-
  - /stop <filter keyword>: stop that filter.
  
 """
