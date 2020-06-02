@@ -7,7 +7,6 @@ from telegram.error import BadRequest
 from telegram.ext import CommandHandler, Filters, run_async
 from telegram.utils.helpers import mention_html
 
-from tg_bot import dispatcher, TOKEN
 from tg_bot import dispatcher, TOKEN, SUDO_USERS
 from tg_bot.modules.disable import DisableAbleCommandHandler
 from tg_bot.modules.helper_funcs.chat_status import bot_admin, can_promote, user_admin, can_pin, connection_status
@@ -26,6 +25,12 @@ def promote(bot: Bot, update: Update, args: List[str]) -> str:
     chat = update.effective_chat
     user = update.effective_user
     log_message = ""
+
+    promoter = chat.get_member(user.id)
+    
+    if not (promoter.can_promote_members or promoter.status == "creator") and not user.id in SUDO_USERS:
+        message.reply_text("You don't have the necessary rights to do that!")
+        return ""
 
     user_id = extract_user(message, args)
 
@@ -310,14 +315,13 @@ __help__ = """
  - /tmute <userhandle> x(m/h/d): mutes a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
  - /unmute <userhandle>: unmutes a user. Can also be used as a reply, muting the replied to user.
   
-*Here is the Help for Delete Module*
-
+*#DELETIONS*
  - /del: deletes the message you replied to
  - /purge: deletes all messages between this and the replied to message.
  - /purge <integer X>: deletes the replied message, and X messages following it if replied to a message.
  - /purge <integer X>: deletes the number of messages starting from bottom. (Counts manaully deleted messages too)
  
-*Here is the Help for Reportings*
+*#REPORTINGS
 It allow's members to report some other untoxicated mssg of members to the group admins . Admins will  get instant reports on their inbox to do the concerned actions.
 
  - /report <reason>: reply to a message to report it to admins.
@@ -328,7 +332,7 @@ NOTE: Neither of these will get triggered if used by admins.
  - If done in pm, toggles your status.
  - If in chat, toggles that chat's status.
  
- *Here is the Help for Bans*
+ *#BANS*
  - /punchme: punchs the user who issued the command
 *Admin only:*
  - /ban <userhandle>: bans a user. (via handle, or reply)
