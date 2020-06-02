@@ -309,7 +309,7 @@ def user_can_ban(func):
         user = update.effective_user.id
         member = update.effective_chat.get_member(user)
         if not (member.can_restrict_members or member.status == "creator") and not user in SUDO_USERS:
-            update.effective_message.reply_text("Sorry son, but you're not worthy to ban member , you don't have sufficient Rights")
+            update.effective_message.reply_text("Lmao,you don't even have that right.kek")
             return ""
         return func(bot, update, *args, **kwargs)
 
