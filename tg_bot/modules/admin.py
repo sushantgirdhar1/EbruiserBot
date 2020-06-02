@@ -321,7 +321,7 @@ __help__ = """
  - /purge <integer X>: deletes the replied message, and X messages following it if replied to a message.
  - /purge <integer X>: deletes the number of messages starting from bottom. (Counts manaully deleted messages too)
  
-*#REPORTINGS
+*#REPORTINGS*
 It allow's members to report some other untoxicated mssg of members to the group admins . Admins will  get instant reports on their inbox to do the concerned actions.
 
  - /report <reason>: reply to a message to report it to admins.
@@ -332,7 +332,7 @@ NOTE: Neither of these will get triggered if used by admins.
  - If done in pm, toggles your status.
  - If in chat, toggles that chat's status.
  
- *#BANS*
+*#BANS*
  - /punchme: punchs the user who issued the command
 *Admin only:*
  - /ban <userhandle>: bans a user. (via handle, or reply)
