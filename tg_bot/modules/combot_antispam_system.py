@@ -295,7 +295,7 @@ def __chat_settings__(chat_id, user_id):
            "It's goodbye preference is `{}`.".format(welcome_pref, goodbye_pref)
 
 __help__ = """
-#CASBANS
+*#CASBANS*
 - /casver: Returns the API version that the bot is currently running
  - /cascheck: Checks you or another user for CAS BAN 
 *Admin only:* for *CAS Bans*
@@ -308,12 +308,12 @@ __help__ = """
  - /setkicktime: sets new auto-kick time value (between 30 and 900 seconds)
  - /cas: Info about CAS. (What is CAS?)
  
-#SPAMWATCH 
+*#SPAMWATCH*
  Also *Admin Only* For *SpamWatch* 
  Along , with CAS Bans . We have Added *Spamwatch* API to Global Bans . you can turn on all the protection by just 
  - /gbanstat on : this will turn it on 
  
- #BLUETEXTING
+ *#BLUETEXTING*
   - /cleanblue <on/off/yes/no> - clean commands after sending
  - /ignoreblue <word> - prevent auto cleaning of the command
  - /unignoreblue <word> - remove prevent auto cleaning of the command
