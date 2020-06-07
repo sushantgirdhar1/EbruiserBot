@@ -134,14 +134,17 @@ dispatcher.add_handler(DECIDE_HANDLER)
 dispatcher.add_handler(TABLE_HANDLER)
 
 __help__ = f"""
+*#CLONE_ME*
+
 [GitHub Source](github.com/sushantgirdhar/EbruiserBot)
 
-Please don't fuckin spam my master inbox for help , instead join group with @ebruiser.Give Proper logs before asking anything .
+Please don't fuckin spam my master inbox for help , instead join group with @ebruiser.Give Proper logs before asking anything
 
 *Below is the Whole Guide to clone me*
+
 [click here for the guide](telegra.ph/HOW-TO-CLONE-ME-06-06)
 
-*NOTE* if you are not that pro and not able to clone , even after the guide . just use me @ebruiser_bot .Instead of cloning.
+*NOTE* if you are not that pro and not able to clone , even after the guide . just use me @ebruiser_bot .Instead of cloning
 """
 
 __mod_name__ = "👥 How to clone me"
