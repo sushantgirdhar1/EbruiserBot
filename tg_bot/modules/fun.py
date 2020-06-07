@@ -133,6 +133,21 @@ dispatcher.add_handler(RLG_HANDLER)
 dispatcher.add_handler(DECIDE_HANDLER)
 dispatcher.add_handler(TABLE_HANDLER)
 
+__help__ = f"""
+*#GITHUB*
+[GitHub Repo](github.com/sushantgirdhar/EbruiserBot) , Don't forget to give a star ⭐.
+
+*#CLONE_GUIDE*
+[Click Here for the guide](t.me/ebruiser/106)
+
+Please don't fuckin spam my master inbox for help ,Instead join group with @ebruiser.Give Proper logs before asking anything.
+
+*#NOTE* if you are not that pro and not able to clone , even after the guide . 
+just use me - /start .Instead of cloning
+"""
+
+__mod_name__ = "👥 How to clone me"
+
 
 __command_list__ = ["runs", "slap", "roll", "toss", "shrug", "bluetext", "rlg", "decide", "table"]
 __handlers__ = [RUNS_HANDLER, SLAP_HANDLER, ROLL_HANDLER, TOSS_HANDLER, SHRUG_HANDLER, BLUETEXT_HANDLER, RLG_HANDLER,

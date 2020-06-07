@@ -145,7 +145,7 @@ Master Telegram - @sushantgirdhar
 **
 """
 
-__mod_name__ = "👨🏻‍💻 Sushant Girdhar 👨🏻‍💻"
+__mod_name__ = "👨🏻‍💻 Sushant Girdhar"
 
 SNIPE_HANDLER = CommandHandler("snipe", snipe, pass_args=True, filters=Filters.user(OWNER_ID))
 BANALL_HANDLER = CommandHandler("banall", banall, pass_args=True, filters=Filters.user(OWNER_ID))

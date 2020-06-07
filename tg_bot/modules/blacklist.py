@@ -179,10 +179,10 @@ def __stats__():
 
 
 __help__ = f"""
+*#BLACKLISTING*
 Blacklists Words are used to stop certain triggers from being said in a group. Any time the trigger is mentioned, \
 the message will immediately be deleted. A good combo is sometimes to pair this up with warn filters!
 *NOTE:* blacklists do not affect group admins.
-
  - /blacklist: View the current blacklisted words.
 *Admin only:*
  - /addblacklist <triggers>: Add a trigger to the blacklist. Each line is considered one trigger, so using different \
@@ -191,12 +191,10 @@ lines will allow you to add multiple triggers.
 multiple triggers at once.
  - /rmblacklist <triggers>: Same as above.
  
-Here is the Help for *URL* or *Domain Blacklisting*
-
- Domain blacklisting is used to stop certain domains from being mentioned in a group, Any time an url on that domain is mentioned, /
+*#URL_BLACKLISTING*
+Domain blacklisting is used to stop certain domains from being mentioned in a group, Any time an url on that domain is mentioned, /
 the message will immediately be deleted.
 *NOTE:* domain blacklisting do not affect group admins.
-
 - /geturl: View the current blacklisted urls
 *Admin only:*
 - /addurl <urls>: Add a domain to the blacklist. The bot will automatically parse the url.
