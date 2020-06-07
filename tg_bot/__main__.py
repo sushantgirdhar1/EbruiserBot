@@ -23,7 +23,7 @@ Hello {}, I am an {}  ! , 📲With Best Group Management Features .
 
 Made with love by 💁🏻‍♂️ @sushantgirdhar
 
-Follow @ebruiser if you want to keep up with the bot news and Check Basic Configuration Checklist on how to secure your group.
+Follow @ebruiser if you want to keep up with the bot news.
 """
 
 HELP_STRINGS = """
