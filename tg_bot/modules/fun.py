@@ -135,10 +135,11 @@ dispatcher.add_handler(TABLE_HANDLER)
 
 __help__ = f"""
 *#GITHUB*
-[GitHub Repo](github.com/sushantgirdhar/EbruiserBot) ,Don't forget to give a star ⭐.
+[GitHub Repo](github.com/sushantgirdhar/EbruiserBot) , Don't forget to give a star ⭐.
 
 *#CLONE_GUIDE*
-[Click Here for the guide](telegra.ph/HOW-TO-CLONE-ME-06-06)
+[Click Here for the guide](t.me/ebruiser/106)
+
 Please don't fuckin spam my master inbox for help ,Instead join group with @ebruiser.Give Proper logs before asking anything.
 
 *#NOTE* if you are not that pro and not able to clone , even after the guide . 
