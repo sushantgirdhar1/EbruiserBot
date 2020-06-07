@@ -22,7 +22,6 @@ Hello {}, I am an {}  ! , 📲With Best Group Management Features .
 ⚙️Click /help to find out more about how to use me to my full potential
 
 Made with love by 💁🏻‍♂️ @sushantgirdhar
-[GitHub Source](github.com/sushantgirdhar/EbruiserBot)
 
 Follow @ebruiser if you want to keep up with the bot news and Check Basic Configuration Checklist on how to secure your group.
 """
