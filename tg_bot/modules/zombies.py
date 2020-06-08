@@ -19,7 +19,6 @@ from tg_bot.modules.log_channel import loggable
 @can_promote
 @user_admin
 @loggable
-@register(outgoing=True, pattern="^/zombies(?: |$)(/*)", groups_only=True)
 async def rm_deletedacc(show):
     """ For .delusers command, list all the ghost/deleted accounts in a chat. """
     if not show.is_group:
@@ -94,7 +93,6 @@ async def rm_deletedacc(show):
 @can_promote
 @user_admin
 @loggable
-@register(outgoing=True, pattern="^.users ?(.*)", groups_only=True)
 async def get_users(show):
     """ For .users command, list all of the users in a chat. """
     info = await show.client.get_entity(show.chat_id)
