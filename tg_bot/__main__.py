@@ -1,43 +1,35 @@
 import importlib
 import re
+import datetime
 from typing import Optional, List
-
-from telegram import Bot, Update, ParseMode, InlineKeyboardMarkup, InlineKeyboardButton
+import resource
+import platform
+import sys
+import traceback
+from sys import argv
+from telegram import Message, Chat, Update, Bot, User
+from telegram import ParseMode, InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup, KeyboardButton
 from telegram.error import Unauthorized, BadRequest, TimedOut, NetworkError, ChatMigrated, TelegramError
-from telegram.ext import CommandHandler, MessageHandler, CallbackQueryHandler, Filters
-from telegram.ext.dispatcher import run_async, DispatcherHandlerStop
+from telegram.ext import CommandHandler, Filters, MessageHandler, CallbackQueryHandler
+from telegram.ext.dispatcher import run_async, DispatcherHandlerStop, Dispatcher
 from telegram.utils.helpers import escape_markdown
-
 from tg_bot import dispatcher, updater, TOKEN, WEBHOOK, OWNER_ID, SUPPORT_CHAT, DONATION_LINK, CERT_PATH, PORT, URL, LOGGER, \
     ALLOW_EXCL
-# needed to dynamically load modules
-# NOTE: Module order is not guaranteed, specify that in the config file!
 from tg_bot.modules import ALL_MODULES
 from tg_bot.modules.helper_funcs.chat_status import is_user_admin
 from tg_bot.modules.helper_funcs.misc import paginate_modules
+import tg_bot.modules.helper_funcs.panel_string as HELP_PANEL_STRING
+from tg_bot.modules.connection import connected
+from tg_bot.modules.connection import connect_button
 
-PM_START_TEXT = """
-Hello {}, I am an {}  ! , 📲With Best Group Management Features .
 
-⚙️Click /help to find out more about how to use me to my full potential
+VERSION = "5.5.2"
 
-Made with love by 💁🏻‍♂️ @sushantgirdhar
+def vercheck() -> str:
+    return str(VERSION)
 
-Follow @ebruiser if you want to keep up with the bot news.
-"""
 
-HELP_STRINGS = """
-Hey there! My name is *{}*.
-I am an Extra Ordinary group management bot, here to help you get around and keep the order in your groups with Extra Fun and Useful Modules.I have lots of handy features, such as warning system, a note keeping system, and even predetermined replies on certain keywords.
-
-*Main* commands available:
- - /start: start the bot
- - /help: PM's you this message.
-
-If you have any bugs or questions on how to use me or need helper in setting up the bot , head to @ebruiser .
-{}
-And the following:
-""".format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n")
+HELP_STRINGS = HELP_PANEL_STRING.HELP.format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n")
 
 DONATE_STRING = """I am glad to hear that you want to donate!
 EbruiserBot is hosted on one of Free Servers and doesn't require any donations as of now but \
@@ -54,6 +46,10 @@ DATA_EXPORT = []
 
 CHAT_SETTINGS = {}
 USER_SETTINGS = {}
+
+GDPR = []
+
+
 
 for module_name in ALL_MODULES:
     imported_module = importlib.import_module("tg_bot.modules." + module_name)
@@ -74,6 +70,9 @@ for module_name in ALL_MODULES:
 
     if hasattr(imported_module, "__stats__"):
         STATS.append(imported_module)
+
+    if hasattr(imported_module, "__gdpr__"):
+        GDPR.append(imported_module)
 
     if hasattr(imported_module, "__user_info__"):
         USER_INFO.append(imported_module)
@@ -108,6 +107,7 @@ def test(bot: Bot, update: Update):
     update.effective_message.reply_text("This person edited a message")
     print(update.effective_message)
 
+
 @run_async
 def start(bot: Bot, update: Update, args: List[str]):
     if update.effective_chat.type == "private":
@@ -129,15 +129,32 @@ def start(bot: Bot, update: Update, args: List[str]):
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
         else:
-            first_name = update.effective_user.first_name
-            update.effective_message.reply_text(
-                PM_START_TEXT.format(escape_markdown(first_name), escape_markdown(bot.first_name), OWNER_ID),
-                parse_mode=ParseMode.MARKDOWN, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="➕ Add me to a Group ➕",
-                                                                       url="t.me/{}?startgroup=true".format(bot.username))]]))
-          
-
+            send_start(bot, update)
     else:
-        update.effective_message.reply_text("Yo,Wassup?")
+        update.effective_message.reply_text("Yo,Wassup? 🙂")
+
+def send_start(bot, update):
+    #Try to remove old message
+    try:
+        query = update.callback_query
+        query.message.delete()
+    except:
+        pass
+    chat = update.effective_chat  # type: Optional[Chat]
+    text = " *Hey there! My name is Auditor* ✪ . I'm here to help you manage your CA Groups."
+    text += "\n\nBefore adding me to your group. you must take authorization from [Here](https://t.me/sushantgirdhar)"  
+    text += "\n\nif authorization is not taken ,Bot will be removed from your group."
+    
+    keyboard = [[InlineKeyboardButton(text="➕ Add me in your Group ➕", url="t.me/ebruiser_bot?startgroup=true")]]
+    keyboard += [[InlineKeyboardButton(text="📣 Support Channel", url="https://t.me/ebruiser"), InlineKeyboardButton(text="❗ Global Bans", url="https://t.me/castudentsfed")]]
+    keyboard += [[InlineKeyboardButton(text="⚙️ Help", callback_data="help_back"),InlineKeyboardButton(text="♠️ Owner",url="https://telegram.dog/sushantgirdhar")]]
+   
+    update.effective_message.reply_photo(HELP_PANEL_STRING.tg_bot_IMG,text, reply_markup=InlineKeyboardMarkup(keyboard), parse_mode=ParseMode.MARKDOWN)
+
+
+def m_connect_button(bot, update):
+    bot.delete_message(update.effective_chat.id, update.effective_message.message_id)
+    connect_button(bot, update)
 
 
 # for test purposes
@@ -229,9 +246,8 @@ def get_help(bot: Bot, update: Update):
 
         update.effective_message.reply_text("Contact me in PM to get the list of possible commands.",
                                             reply_markup=InlineKeyboardMarkup(
-                                                [[InlineKeyboardButton(text="Help",
-                                                                       url="t.me/{}?start=help".format(
-                                                                           bot.username))]]))
+                                                [[InlineKeyboardButton(text="Help",url="t.me/{}?start=help".format(bot.username)),
+                                                InlineKeyboardButton(text="👥 Bot Channel",url="https://telegram.dog/ebruiser")]]))
         return
 
     elif len(args) >= 2 and any(args[1].lower() == x for x in HELPABLE):
@@ -270,6 +286,9 @@ def send_settings(chat_id, user_id, user=False):
                                         parse_mode=ParseMode.MARKDOWN)
 
 
+    
+
+
 @run_async
 def settings_button(bot: Bot, update: Update):
     query = update.callback_query
@@ -284,7 +303,8 @@ def settings_button(bot: Bot, update: Update):
             module = mod_match.group(2)
             chat = bot.get_chat(chat_id)
             text = "*{}* has the following settings for the *{}* module:\n\n".format(escape_markdown(chat.title),
-                                                                                     CHAT_SETTINGS[module].__mod_name__) + \
+                                                                                     CHAT_SETTINGS[
+                                                                                         module].__mod_name__) + \
                    CHAT_SETTINGS[module].__chat_settings__(chat_id, user.id)
             query.message.reply_text(text=text,
                                      parse_mode=ParseMode.MARKDOWN,
@@ -358,26 +378,6 @@ def get_settings(bot: Bot, update: Update):
         send_settings(chat.id, user.id, True)
 
 
-@run_async
-def donate(bot: Bot, update: Update):
-    user = update.effective_message.from_user
-    chat = update.effective_chat  # type: Optional[Chat]
-
-    if chat.type == "private":
-        update.effective_message.reply_text(DONATE_STRING, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
-
-        if OWNER_ID != 254318997 and DONATION_LINK:
-            update.effective_message.reply_text("You can also donate to the person currently running me "
-                                                "[here]({})".format(DONATION_LINK),
-                                                parse_mode=ParseMode.MARKDOWN)
-
-    else:
-        try:
-            bot.send_message(user.id, DONATE_STRING, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
-
-            update.effective_message.reply_text("I've PM'ed you about donating to my creator!")
-        except Unauthorized:
-            update.effective_message.reply_text("Contact me in PM first to get donation information.")
 
 
 def migrate_chats(bot: Bot, update: Update):
@@ -397,20 +397,98 @@ def migrate_chats(bot: Bot, update: Update):
 
     LOGGER.info("Successfully migrated!")
     raise DispatcherHandlerStop
+    
+@run_async
+def donate(bot: Bot, update: Update):
+    user = update.effective_message.from_user
+    chat = update.effective_chat  # type: Optional[Chat]
+
+    if chat.type == "private":
+        update.effective_message.reply_text(DONATE_STRING, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
+
+        if OWNER_ID != 254318997 and DONATION_LINK:
+            update.effective_message.reply_text("You can also donate to the person currently running me "
+                                                "[here]({})".format(DONATION_LINK),
+                                                parse_mode=ParseMode.MARKDOWN)
+
+    else:
+        try:
+            bot.send_message(user.id, DONATE_STRING, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
+
+            update.effective_message.reply_text("I've PM'ed you about donating to my creator!")
+        except Unauthorized:
+            update.effective_message.reply_text("Contact me in PM first to get donation information.")    
 
 
+@run_async
+def source(bot: Bot, update: Update):
+    user = update.effective_message.from_user
+    chat = update.effective_chat  # type: Optional[Chat]
+
+    if chat.type == "private":
+        update.effective_message.reply_text(HELP_PANEL_STRING.SOURCE_STRING, parse_mode=ParseMode.MARKDOWN)
+
+    else:
+        try:
+            bot.send_message(user.id, SOURCE_STRING, parse_mode=ParseMode.MARKDOWN)
+
+            update.effective_message.reply_text("You'll find in PM more info about my sourcecode.")
+        except Unauthorized:
+            update.effective_message.reply_text("Contact me in PM first to get source information.")
+
+# Avoid memory dead
+def memory_limit(percentage: float):
+    if platform.system() != "Linux":
+        print('Only works on linux!')
+        return
+    soft, hard = resource.getrlimit(resource.RLIMIT_AS)
+    resource.setrlimit(resource.RLIMIT_AS, (int(get_memory() * 1024 * percentage), hard))
+
+def get_memory():
+    with open('/proc/meminfo', 'r') as mem:
+        free_memory = 0
+        for i in mem:
+            sline = i.split()
+            if str(sline[0]) in ('MemFree:', 'Buffers:', 'Cached:'):
+                free_memory += int(sline[1])
+    return free_memory
+
+def memory(percentage=0.5):
+    def decorator(function):
+        def wrapper(*args, **kwargs):
+            memory_limit(percentage)
+            try:
+                function(*args, **kwargs)
+            except MemoryError:
+                mem = get_memory() / 1024 /1024
+                print('Remain: %.2f GB' % mem)
+                sys.stderr.write('\n\nERROR: Memory Exception\n')
+                sys.exit(1)
+        return wrapper
+    return decorator
+
+
+@memory(percentage=0.8)
 def main():
     test_handler = CommandHandler("test", test)
     start_handler = CommandHandler("start", start, pass_args=True)
+   
+    start_callback_handler = CallbackQueryHandler(send_start, pattern=r"bot_start")
+    dispatcher.add_handler(start_callback_handler)
+
 
     help_handler = CommandHandler("help", get_help)
     help_callback_handler = CallbackQueryHandler(help_button, pattern=r"help_")
 
     settings_handler = CommandHandler("settings", get_settings)
     settings_callback_handler = CallbackQueryHandler(settings_button, pattern=r"stngs_")
-
-    donate_handler = CommandHandler("donate", donate)
+   
+    source_handler = CommandHandler("source", source)
+    
     migrate_handler = MessageHandler(Filters.status_update.migrate, migrate_chats)
+
+    M_CONNECT_BTN_HANDLER = CallbackQueryHandler(m_connect_button, pattern=r"main_connect")
+    donate_handler = CommandHandler("donate", donate)
 
     # dispatcher.add_handler(test_handler)
     dispatcher.add_handler(start_handler)
@@ -419,9 +497,15 @@ def main():
     dispatcher.add_handler(help_callback_handler)
     dispatcher.add_handler(settings_callback_handler)
     dispatcher.add_handler(migrate_handler)
+    dispatcher.add_handler(source_handler)
+    dispatcher.add_handler(M_CONNECT_BTN_HANDLER)
     dispatcher.add_handler(donate_handler)
+    
+    
+    # dispatcher.add_error_handler(error_callback)
 
-    dispatcher.add_error_handler(error_callback)
+    # add antiflood processor
+    Dispatcher.process_update = process_update
 
     if WEBHOOK:
         LOGGER.info("Using webhooks.")
@@ -440,6 +524,61 @@ def main():
         updater.start_polling(timeout=15, read_latency=4, clean=True)
 
     updater.idle()
+
+
+CHATS_CNT = {}
+CHATS_TIME = {}
+
+
+def process_update(self, update):
+    # An error happened while polling
+    if isinstance(update, TelegramError):
+        try:
+            self.dispatch_error(None, update)
+        except Exception:
+            self.logger.exception('An uncaught error was raised while handling the error')
+        return
+
+    now = datetime.datetime.utcnow()
+    cnt = CHATS_CNT.get(update.effective_chat.id, 0)
+
+    t = CHATS_TIME.get(update.effective_chat.id, datetime.datetime(1970, 1, 1))
+    if t and now > t + datetime.timedelta(0, 1):
+        CHATS_TIME[update.effective_chat.id] = now
+        cnt = 0
+    else:
+        cnt += 1
+
+    if cnt > 10:
+        return
+
+    CHATS_CNT[update.effective_chat.id] = cnt
+    for group in self.groups:
+        try:
+            for handler in (x for x in self.handlers[group] if x.check_update(update)):
+                handler.handle_update(update, self)
+                break
+
+        # Stop processing with any other handler.
+        except DispatcherHandlerStop:
+            self.logger.debug('Stopping further handlers due to DispatcherHandlerStop')
+            break
+
+        # Dispatch any error.
+        except TelegramError as te:
+            self.logger.warning('A TelegramError was raised while processing the Update')
+
+            try:
+                self.dispatch_error(update, te)
+            except DispatcherHandlerStop:
+                self.logger.debug('Error handler stopped further handlers')
+                break
+            except Exception:
+                self.logger.exception('An uncaught error was raised while handling the error')
+
+        # Errors should not stop the thread.
+        except Exception:
+            self.logger.exception('An uncaught error was raised while processing the update')
 
 
 if __name__ == '__main__':
