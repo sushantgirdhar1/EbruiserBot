@@ -143,7 +143,7 @@ def send_start(bot, update):
     chat = update.effective_chat  # type: Optional[Chat]
     text = " *Hey there! My name is Auditor* ✪ . I'm here to help you manage your CA Groups."
     text += "\n\nBefore adding me to your group. you must take authorization from [Here](https://t.me/sushantgirdhar)"  
-    text += "\n\n if authorization is not taken ,Bot will be removed from your group."
+    text += "\n\nif authorization is not taken ,Bot will be removed from your group."
     
     keyboard = [[InlineKeyboardButton(text="➕ Add me in your Group ➕", url="t.me/ebruiser_bot?startgroup=true")]]
     keyboard += [[InlineKeyboardButton(text="📣 Support Channel", url="https://t.me/ebruiser"), InlineKeyboardButton(text="❗ Global Bans", url="https://t.me/castudentsfed")]]
