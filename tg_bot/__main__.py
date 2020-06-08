@@ -143,7 +143,7 @@ def send_start(bot, update):
     chat = update.effective_chat  # type: Optional[Chat]
     text = " Hey there! My name is Auditor ✪ - I'm here to help you manage any CA Groups."
     text += "\n\Must take authorization before adding me .[Here](t.me/sushantgirdhar)"
-    text += "\n\nIntegrated and Powered by SpamWatch"  
+    text += "\n\nI'm fully Open Sourced.Do -/source to check."  
 
     keyboard = [[InlineKeyboardButton(text="➕ Add me in your Group ➕", url="t.me/ebruiser_bot?startgroup=true")]]
     keyboard += [[InlineKeyboardButton(text="📢 Support Channel", url="https://t.me/ebruiser"), InlineKeyboardButton(text="📲 Global Bans", url="https://t.me/castudedntsfed")]]
@@ -602,6 +602,4 @@ def process_update(self, update):
 
 if __name__ == '__main__':
     LOGGER.info("Successfully loaded modules: " + str(ALL_MODULES))
-    tbot.start(bot_token=TOKEN)
     main()
-    LOGGER.info("Successfully loaded")
