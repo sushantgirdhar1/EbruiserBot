@@ -21,6 +21,7 @@ the things I can help you with.
 *Main* commands available:
  - /start: start the bot
  - /help: PM's you this message.
+ - /donate : Gives you info on how to support me and my creator
 {}
 And the following:
 """
