@@ -74,8 +74,10 @@ def warn(user: User, chat: Chat, reason: str, message: Message, warner: User = N
                       f"<b>Counts:</b> <code>{num_warns}/{limit}</code>")
 
     else:
-        keyboard = InlineKeyboardMarkup([{InlineKeyboardButton("Remove warn(Admin Only)",
-                                                               callback_data="rm_warn({})".format(user.id))}])
+        keyboard = InlineKeyboardMarkup([{InlineKeyboardButton("Remove warn",
+                                                               callback_data="rm_warn({})".format(user.id)),InlineKeyboardButton(text="Rules",
+                                                                       url="t.me/{}?start={}".format("ebruiser_bot",
+                                                                                                     chat.id))}])
 
         reply = f"{mention_html(user.id, user.first_name)} has {num_warns}/{limit} warnings... watch out!"
         if reason:
