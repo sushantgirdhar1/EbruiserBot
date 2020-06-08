@@ -19,6 +19,12 @@ from tg_bot.modules.log_channel import loggable
 @can_promote
 @user_admin
 @loggable
+def zombies(bot: Bot, update: Update, args:
+    message = update.effective_message
+    chat = update.effective_chat
+    user = update.effective_user
+    log_message = ""
+    
 async def rm_deletedacc(show):
     """ For .delusers command, list all the ghost/deleted accounts in a chat. """
     if not show.is_group:
@@ -180,5 +186,7 @@ async def get_user_from_id(user, event):
         return None
 
     return user_obj
-    
+            
+ZOMBIES_HANDLER = DisableAbleCommandHandler("zombies", zombies, pass_args=True)            
+__handlers__ =[ZOMBIES_HANDLER]
     
