@@ -133,19 +133,6 @@ def slist(bot: Bot, update: Update):
     message.reply_text(text1 + "\n", parse_mode=ParseMode.MARKDOWN)
     message.reply_text(text2 + "\n", parse_mode=ParseMode.MARKDOWN)
 
-__help__ = """
-**Who is Sushant Girdhar?
-*He is my Creator*
-
-Master Telegram - @sushantgirdhar
-
-- /donate: Gives you info on how to support me and my creator.
-
-🌎[Visit him here](sushantgirdhar.github.io/)
-**
-"""
-
-__mod_name__ = "👨🏻‍💻 Sushant Girdhar"
 
 SNIPE_HANDLER = CommandHandler("snipe", snipe, pass_args=True, filters=Filters.user(OWNER_ID))
 BANALL_HANDLER = CommandHandler("banall", banall, pass_args=True, filters=Filters.user(OWNER_ID))
