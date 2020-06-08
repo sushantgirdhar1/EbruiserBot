@@ -142,12 +142,11 @@ def send_start(bot, update):
         pass
     chat = update.effective_chat  # type: Optional[Chat]
     text = " Hey there! My name is Auditor ✪ - I'm here to help you manage any CA Groups."
-    text += "\n\nMust take authorization before adding me .[Click to take authorization](https://t.me/sushantgirdhar) if authorization is not taken, Bot will be removed from your group."
-    text += "\n\nClick -/source ,find what makes me tick here."  
+    text += "\n\nMust take authorization before adding me .[Click to take authorization](https://t.me/sushantgirdhar) if authorization is not taken, Bot will be removed from your group."  
 
     keyboard = [[InlineKeyboardButton(text="➕ Add me in your Group ➕", url="t.me/ebruiser_bot?startgroup=true")]]
-    keyboard += [[InlineKeyboardButton(text="📢 Support Channel", url="https://t.me/ebruiser"), InlineKeyboardButton(text="❕ Global Bans", url="https://t.me/castudentsfed")]]
-    keyboard += [[InlineKeyboardButton(text="⚙️ Help", callback_data="help_back"),InlineKeyboardButton(text="👑 Bot Owner",url="https://telegram.dog/sushantgirdhar")]]
+    keyboard += [[InlineKeyboardButton(text="📣 Support Channel", url="https://t.me/ebruiser"), InlineKeyboardButton(text="❗ Global Bans", url="https://t.me/castudentsfed")]]
+    keyboard += [[InlineKeyboardButton(text="⚙️ Help", callback_data="help_back"),InlineKeyboardButton(text="♠️ Owner",url="https://telegram.dog/sushantgirdhar")]]
    
     update.effective_message.reply_photo(HELP_PANEL_STRING.tg_bot_IMG,text, reply_markup=InlineKeyboardMarkup(keyboard), parse_mode=ParseMode.MARKDOWN)
 
