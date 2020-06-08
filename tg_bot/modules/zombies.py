@@ -19,7 +19,7 @@ from tg_bot.modules.log_channel import loggable
 @can_promote
 @user_admin
 @loggable
-def zombies(bot: Bot, update: Update, args:
+def zombies(bot: Bot, update: Update, args: List[str]) -> str:
     message = update.effective_message
     chat = update.effective_chat
     user = update.effective_user
