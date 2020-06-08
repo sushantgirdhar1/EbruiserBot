@@ -520,14 +520,8 @@ def main():
             updater.bot.set_webhook(url=URL + TOKEN)
 
     else:
-        LOGGER.info("lucifer running...")
-        updater.start_polling(timeout=15, read_latency=4
-
-  
-    if len(argv) not in (1, 3, 4):
-        tg_bot.disconnect()
-    else:
-        tg_bot.run_until_disconnected()
+        LOGGER.info("Using long polling.")
+        updater.start_polling(timeout=15, read_latency=4, clean=True)
 
     updater.idle()
 
@@ -589,6 +583,4 @@ def process_update(self, update):
 
 if __name__ == '__main__':
     LOGGER.info("Successfully loaded modules: " + str(ALL_MODULES))
-    tg_bot.start(bot_token=TOKEN)
     main()
-    LOGGER.info("Successfully loaded")
