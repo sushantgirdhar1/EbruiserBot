@@ -18,6 +18,7 @@ the things I can help you with.
  - /start: start the bot
  - /help: PM's you this message.
  - /donate : Gives you info on how to support me and my creator
+ - /source : find out , whats ticking me here
 {}
 And the following:
 """
