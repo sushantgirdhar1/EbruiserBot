@@ -1,15 +1,11 @@
-tg_bot_IMG = "https://telegra.ph/file/7699c3a2c49b799c7be59.png"
+tg_bot_IMG = "https://telegra.ph/file/62a4c21a7c91096c1083a.jpg"
 
 SOURCE_STRING = """
 *#GITHUB*
-[GitHub Repo](github.com/sushantgirdhar/EbruiserBot) , Don't forget to give a star ⭐.
 
-*#CLONE_GUIDE*
-[Click Here for the guide](t.me/ebruiser/106)
+[GitHub Repo](github.com/sushantgirdhar/EbruiserBot) , Don't forget to give a star ⭐
 
-Please don't fuckin spam my master inbox for help ,Instead join group with @ebruiser.Give Proper logs before asking anything.
-
-*#NOTE* if you are not that pro and not able to clone , even after the guide . 
+*Note* we do not support forks of our bot. instead of spamming masters inbox
 just use me - /start . Instead of cloning
 """
 
