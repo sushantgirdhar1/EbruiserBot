@@ -1,4 +1,4 @@
-tg_bot_IMG = "https://telegra.ph/file/00cf03ddb2ab9649e09d2.jpg"
+tg_bot_IMG = "https://telegra.ph/file/e1a73033d853053d51e2e.png"
 
 SOURCE_STRING = """
 *#GITHUB*
