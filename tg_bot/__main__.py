@@ -147,7 +147,7 @@ def send_start(bot, update):
 
     
     keyboard = [[InlineKeyboardButton(text="➕ Add me in your Group ➕", url="t.me/ebruiser_bot?startgroup=true")]]
-    keyboard += [[InlineKeyboardButton(text="📣Channel", url="https://t.me/ebruiser"), InlineKeyboardButton(text="Bans", url="https://t.me/castudentsfed")]]
+    keyboard += [[InlineKeyboardButton(text="📣Channel", url="https://t.me/ebruiser"), InlineKeyboardButton(text="❗Bans", url="https://t.me/castudentsfed")]]
     keyboard += [[InlineKeyboardButton(text="⚙️Help", callback_data="help_back"),InlineKeyboardButton(text="♠️Master",url="https://sushantgirdhar.github.io")]]
    
     update.effective_message.reply_photo(HELP_PANEL_STRING.tg_bot_IMG,text, reply_markup=InlineKeyboardMarkup(keyboard), parse_mode=ParseMode.MARKDOWN)
