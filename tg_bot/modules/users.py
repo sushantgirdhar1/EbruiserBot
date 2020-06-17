@@ -55,6 +55,7 @@ def broadcast(bot: Bot, update: Update):
 
     if len(to_send) >= 2:
         users = get_all_users()
+        failed_user = 0
         for user in users:
             try:
                 bot.sendMessage(int(user.user_id), to_send[1])
@@ -64,7 +65,7 @@ def broadcast(bot: Bot, update: Update):
                 LOGGER.warning("Couldn't send broadcast to %s", str(user.user_id))
 
         update.effective_message.reply_text(
-            f"{failed_user} failed to receive message, probably due to being blocked"
+            f"ok {failed_user} failed to receive message, probably due to being blocked"
             )
 
 
