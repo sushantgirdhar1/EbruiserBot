@@ -150,7 +150,7 @@ def send_start(bot, update):
     keyboard += [[InlineKeyboardButton(text="📣Bot Channel", url="https://t.me/ebruiser"), InlineKeyboardButton(text="❗ Global Bans", url="https://t.me/castudentsfed")]]
     keyboard += [[InlineKeyboardButton(text="⚙️ Get Help", callback_data="help_back"),InlineKeyboardButton(text="♠️ My Master",url="https://sushantgirdhar.github.io")]]
    
-    update.effective_message.reply_photo(HELP_PANEL_STRING.tg_bot_IMG,text, reply_markup=InlineKeyboardMarkup(keyboard), parse_mode=ParseMode.MARKDOWN)
+    update.effective_message.reply_gif(HELP_PANEL_STRING.tg_bot_IMG,text, reply_markup=InlineKeyboardMarkup(keyboard), parse_mode=ParseMode.MARKDOWN)
 
 
 def m_connect_button(bot, update):
