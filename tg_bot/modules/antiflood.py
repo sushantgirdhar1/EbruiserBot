@@ -1,25 +1,26 @@
 import html, time
+import re
 from typing import Optional, List
 
-from telegram import Message, Chat, Update, Bot, User, ParseMode, InlineKeyboardButton, InlineKeyboardMarkup, ChatPermissions
+from telegram import Message, Chat, Update, Bot, User, \
+InlineKeyboardButton, InlineKeyboardMarkup, ParseMode
 from telegram.error import BadRequest
-from telegram.ext import Filters, MessageHandler, CommandHandler, run_async, CallbackContext
+from telegram.ext import Filters, MessageHandler, CommandHandler, CallbackQueryHandler, run_async
 from telegram.utils.helpers import mention_html
 
-from natalie_bot import dispatcher, CMD_PREFIX
-from natalie_bot.modules.helper_funcs.handlers import CustomCommandHandler
-from natalie_bot.modules.helper_funcs.chat_status import is_user_admin, user_admin, can_restrict, can_delete
-from natalie_bot.modules.helper_funcs.string_handling import extract_time
-from natalie_bot.modules.log_channel import loggable
-from natalie_bot.modules.sql import antiflood_sql as sql
+from tg_bot import dispatcher, WHITELIST_USERS, TIGER_USERS
+from tg_bot.modules.helper_funcs.chat_status import is_user_admin, user_admin, can_restrict, \
+bot_admin, user_admin_no_reply, connection_status
+from tg_bot.modules.helper_funcs.string_handling import extract_time
+from tg_bot.modules.log_channel import loggable
+from tg_bot.modules.sql import antiflood_sql as sql
 
 FLOOD_GROUP = 3
 
-permissions = ChatPermissions(can_send_messages=False)
 
 @run_async
 @loggable
-def check_flood(update: Update, context: CallbackContext) -> str:
+def check_flood(bot: Bot, update: Update) -> str:
     user = update.effective_user  # type: Optional[User]
     chat = update.effective_chat  # type: Optional[Chat]
     msg = update.effective_message  # type: Optional[Message]
@@ -93,7 +94,7 @@ def check_flood(update: Update, context: CallbackContext) -> str:
 @user_admin
 @can_restrict
 @loggable
-def set_flood(update: Update, context: CallbackContext) -> str:
+def set_flood(bot: Bot, update: Update, args: List[str]) -> str:
     chat = update.effective_chat  # type: Optional[Chat]
     user = update.effective_user  # type: Optional[User]
     message = update.effective_message  # type: Optional[Message]
@@ -137,7 +138,7 @@ def set_flood(update: Update, context: CallbackContext) -> str:
 
 
 @run_async
-def flood(update: Update, context: CallbackContext):
+def flood(bot: Bot, update: Update):
     chat = update.effective_chat  # type: Optional[Chat]
     msg = update.effective_message # type: Optional[Message]
     limit = sql.get_flood_limit(chat.id)
@@ -161,7 +162,7 @@ def flood(update: Update, context: CallbackContext):
 @run_async
 @user_admin
 @loggable
-def flood_time(update: Update, context: CallbackContext) -> str:
+def flood_time(bot: Bot, update: Update, args: List[str]) -> str:
     chat = update.effective_chat  # type: Optional[Chat]
     user = update.effective_user  # type: Optional[User]
     message = update.effective_message  # type: Optional[Message]
@@ -209,7 +210,7 @@ def flood_time(update: Update, context: CallbackContext) -> str:
 @run_async
 @user_admin
 @loggable
-def set_flood_strength(update: Update, context: CallbackContext):
+def set_flood_strength(bot: Bot, update: Update):
     chat = update.effective_chat  # type: Optional[Chat]
     user = update.effective_user  # type: Optional[User]
     msg = update.effective_message  # type: Optional[Message]
@@ -269,9 +270,12 @@ def __chat_settings__(chat_id, user_id):
             return "Anti-flood is set to `{}` messages and *BAN* if exceeded.".format(limit)
 __help__ = """
 You know how sometimes, people join, send 100 messages, and ruin your chat? With antiflood, that happens no more!
+
 Antiflood allows you to take action on users that send more than x messages in a row. Exceeding the set flood \
 will result in banning or muting the user.
+
  - /flood: Get the current flood control setting
+
 *Admin only:*
  - /setflood <int/'no'/'off'>: enables or disables flood control
  - /strongflood <on/yes/off/no>: If set to on, exceeding the flood limit will result in a ban. Else, will just mute.
@@ -282,15 +286,16 @@ If you want to flood mute someone temporarily do the following commands:
 `/strongflood off`
 `/setfloodtime 3h`
 The above following commands will mute any spam flooders temporarily for 3 hours.
+
 """
 
-__mod_name__ = "Anti-Flood"
+__mod_name__ = "AntiFlood"
 
 FLOOD_BAN_HANDLER = MessageHandler(Filters.all & ~Filters.status_update & Filters.group, check_flood)
-SET_FLOOD_HANDLER = CustomCommandHandler(CMD_PREFIX, "setflood", set_flood, filters=Filters.group)
-SET_FLOOD_TIME_HANDLER = CustomCommandHandler(CMD_PREFIX, "setfloodtime", flood_time, filters=Filters.group)
+SET_FLOOD_HANDLER = CustomCommandHandler("setflood", set_flood, filters=Filters.group)
+SET_FLOOD_TIME_HANDLER = CustomCommandHandler("setfloodtime", flood_time, filters=Filters.group)
 FLOOD_HANDLER = CustomCommandHandler(CMD_PREFIX, "flood", flood, filters=Filters.group)
-FLOOD_STRENGTH_HANDLER = CustomCommandHandler(CMD_PREFIX, "strongflood", set_flood_strength, filters=Filters.group)
+FLOOD_STRENGTH_HANDLER = CustomCommandHandler("strongflood", set_flood_strength, filters=Filters.group)
 
 dispatcher.add_handler(FLOOD_BAN_HANDLER, FLOOD_GROUP)
 dispatcher.add_handler(SET_FLOOD_HANDLER)
