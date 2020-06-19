@@ -4,7 +4,6 @@
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/Naereen/)
 
 ![乇乃尺凵工丂乇尺](https://telegra.ph/file/7699c3a2c49b799c7be59.png)
-# 乇乃尺凵工丂乇尺 
 
 
 A modular Telegram Python bot running on python3 with a sqlalchemy database.
