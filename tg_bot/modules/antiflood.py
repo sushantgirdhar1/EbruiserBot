@@ -19,7 +19,6 @@ FLOOD_GROUP = 3
 
 
 @run_async
-@loggable
 def check_flood(bot: Bot, update: Update) -> str:
     user = update.effective_user  # type: Optional[User]
     chat = update.effective_chat  # type: Optional[Chat]
@@ -93,7 +92,6 @@ def check_flood(bot: Bot, update: Update) -> str:
 @run_async
 @user_admin
 @can_restrict
-@loggable
 def set_flood(bot: Bot, update: Update, args: List[str]) -> str:
     chat = update.effective_chat  # type: Optional[Chat]
     user = update.effective_user  # type: Optional[User]
@@ -161,7 +159,6 @@ def flood(bot: Bot, update: Update):
 
 @run_async
 @user_admin
-@loggable
 def flood_time(bot: Bot, update: Update, args: List[str]) -> str:
     chat = update.effective_chat  # type: Optional[Chat]
     user = update.effective_user  # type: Optional[User]
@@ -209,7 +206,6 @@ def flood_time(bot: Bot, update: Update, args: List[str]) -> str:
 
 @run_async
 @user_admin
-@loggable
 def set_flood_strength(bot: Bot, update: Update):
     chat = update.effective_chat  # type: Optional[Chat]
     user = update.effective_user  # type: Optional[User]
