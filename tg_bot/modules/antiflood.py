@@ -9,10 +9,8 @@ from telegram.ext import Filters, MessageHandler, CommandHandler, CallbackQueryH
 from telegram.utils.helpers import mention_html
 
 from tg_bot import dispatcher, WHITELIST_USERS, TIGER_USERS
-from tg_bot.modules.helper_funcs.chat_status import is_user_admin, user_admin, can_restrict, \
-bot_admin, user_admin_no_reply, connection_status
+from tg_bot.modules.helper_funcs.chat_status import is_user_admin, user_admin, can_restrict, can_delete
 from tg_bot.modules.helper_funcs.string_handling import extract_time
-from tg_bot.modules.log_channel import loggable
 from tg_bot.modules.sql import antiflood_sql as sql
 
 FLOOD_GROUP = 3
