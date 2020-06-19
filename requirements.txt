@@ -3,8 +3,7 @@ emoji
 beautifulsoup4
 requests
 sqlalchemy
-python-telegram-bot==12.4.2
-psycopg2-binary
+python-telegram-bot==11.1.0
 feedparser
 pynewtonmath
 spongemock
