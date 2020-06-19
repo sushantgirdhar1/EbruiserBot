@@ -290,7 +290,7 @@ __mod_name__ = "AntiFlood"
 FLOOD_BAN_HANDLER = MessageHandler(Filters.all & ~Filters.status_update & Filters.group, check_flood)
 SET_FLOOD_HANDLER = CommandHandler("setflood", set_flood, filters=Filters.group)
 SET_FLOOD_TIME_HANDLER = CommandHandler("setfloodtime", flood_time, filters=Filters.group)
-FLOOD_HANDLER = CustomCommandHandler(CMD_PREFIX, "flood", flood, filters=Filters.group)
+FLOOD_HANDLER = CommandHandler("flood", flood, filters=Filters.group)
 FLOOD_STRENGTH_HANDLER = CommandHandler("strongflood", set_flood_strength, filters=Filters.group)
 
 dispatcher.add_handler(FLOOD_BAN_HANDLER, FLOOD_GROUP)
