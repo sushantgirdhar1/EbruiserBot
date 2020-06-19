@@ -1,6 +1,6 @@
 import threading
 
-from sqlalchemy import Column, Integer, String, Boolean, UnicodeText
+from sqlalchemy import Column, Integer, String, UnicodeText, Boolean
 
 from tg_bot.modules.sql import BASE, SESSION
 
@@ -15,9 +15,9 @@ class FloodControl(BASE):
     user_id = Column(Integer)
     count = Column(Integer, default=DEF_COUNT)
     limit = Column(Integer, default=DEF_LIMIT)
-    soft_flood = Column(Boolean, default=False)
-    flood_time = Column(UnicodeText, default="0")
-
+    soft_flood = Column(Boolean)
+    flood_time = Column(UnicodeText)
+	
     def __init__(self, chat_id, soft_flood=False, flood_time="0"):
         self.chat_id = str(chat_id)  # ensure string
         self.soft_flood = soft_flood
