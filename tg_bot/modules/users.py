@@ -54,8 +54,17 @@ def broadcast(bot: Bot, update: Update):
     to_send = update.effective_message.text.split(None, 1)
 
     if len(to_send) >= 2:
+        chats = sql.get_all_chats() or []
         users = get_all_users()
+        failed = 0
         failed_user = 0
+        for chat in chats:
+            try:
+                bot.sendMessage(int(chat.chat_id), to_send[1])
+                sleep(0.1)
+            except TelegramError:
+                failed += 1
+                LOGGER.warning("Couldn't send broadcast to %s, group name %s", str(chat.chat_id), str(chat.chat_name))
         for user in users:
             try:
                 bot.sendMessage(int(user.user_id), to_send[1])
@@ -65,7 +74,7 @@ def broadcast(bot: Bot, update: Update):
                 LOGGER.warning("Couldn't send broadcast to %s", str(user.user_id))
 
         update.effective_message.reply_text(
-            f"ok {failed_user} failed to receive message, probably due to being blocked"
+            f"Broadcast complete. {failed} groups failed to receive the message, probably due to being kicked. {failed_user} failed to receive message, probably due to being blocked"
             )
 
 
